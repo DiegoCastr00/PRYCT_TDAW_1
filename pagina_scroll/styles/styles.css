@@ -174,14 +174,14 @@ nav{
 /*------------------- CONTENIDO ---------------*/
 
 .page1{
-  background: url("pagina_scroll/img/img15.jpg");
+  background: url("/img/img15");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page2{
-  background: url("img/img1.jpg");
+  background: url("/pagina_scroll/img/img1.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -195,14 +195,14 @@ nav{
   background-attachment: fixed;
 }
 .page4{
-  background: url("img/img16.jpg");
+  background: url("/img16.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
-.page5{               /*AAAAAAAAA*/
-  background: url("img/img21.jpg");
+.page5{               
+  background: url("img21.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
