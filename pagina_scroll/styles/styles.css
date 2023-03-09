@@ -171,171 +171,171 @@ nav{
   max-width: 350px;
   word-wrap: break-word;
 }
-
 /*------------------- CONTENIDO ---------------*/
+
 .page1{
-  background: url("/pagina_scroll/images/img15.jpg");
+  background: url("/pagina_scroll/img/img15.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page2{
-  background: url("/pagina_scroll/images/img1.jpg");
+  background: url("/pagina_scroll/img/img1.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page3{
-  background: url("/pagina_scroll/images/img6.jpg");
+  background: url("/pagina_scroll/img/img6.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page4{
-  background: url("/pagina_scroll/images/img16.jpg");
+  background: url("/pagina_scroll/img/img16.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
-.page5{              
-  background: url("/pagina_scroll/images/img21.jpg");
+.page5{               /*AAAAAAAAA*/
+  background: url("/pagina_scroll/img/img21.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page6{
-  background: url("/pagina_scroll/images/img11.jpg");
+  background: url("/pagina_scroll/img/img11.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page7{
-  background: url("/pagina_scroll/images/img2.jpg");
+  background: url("/pagina_scroll/img/img2.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page8{
-  background: url("/pagina_scroll/images/img7.jpg");
+  background: url("/pagina_scroll/img/img7.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page10{
-  background: url("/pagina_scroll/images/img22.jpg");
+  background: url("/pagina_scroll/img/img22.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page11{
-  background: url("/pagina_scroll/images/img12.jpg");
+  background: url("/pagina_scroll/img/img12.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page12{
-  background: url("/pagina_scroll/images/img3.jpg");
+  background: url("/pagina_scroll/img/img3.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page13{
-  background: url("/pagina_scroll/images/img8.jpg");
+  background: url("/pagina_scroll/img/img8.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page14{
-  background: url("/pagina_scroll/images/img18.jpg");
+  background: url("/pagina_scroll/img/img18.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page15{
-  background: url("/pagina_scroll/images/img23.jpg");
+  background: url("/pagina_scroll/img/img23.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page16{
-  background: url("/pagina_scroll/images/img13.jpg");
+  background: url("/pagina_scroll/img/img13.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page17{
-  background: url("/pagina_scroll/images/img4.jpg");
+  background: url("/pagina_scroll/img/img4.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page18{
-  background: url("/pagina_scroll/images/img9.jpg");
+  background: url("/pagina_scroll/img/img9.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page19{
-  background: url("/pagina_scroll/images/img19.jpg");
+  background: url("/pagina_scroll/img/img19.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page20{
-  background: url("/pagina_scroll/images/img24.jpg");
+  background: url("/pagina_scroll/img/img24.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page21{
-  background: url("/pagina_scroll/images/img14.jpg");
+  background: url("/pagina_scroll/img/img14.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page22{
-  background: url("/pagina_scroll/images/img5.jpg");
+  background: url("/pagina_scroll/img/img5.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page23{
-  background: url("/pagina_scroll/images/img10.jpg");
+  background: url("/pagina_scroll/img/img10.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page24{
-  background: url("/pagina_scroll/images/img20.jpg");
+  background: url("/pagina_scroll/img/img20.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page25{
-  background: url("/pagina_scroll/images/img25.jpg");
+  background: url("/pagina_scroll/img/img25.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
