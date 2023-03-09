@@ -174,7 +174,7 @@ nav{
 /*------------------- CONTENIDO ---------------*/
 
 .page1{
-  background: url("img/img15.jpg");
+  background: url("pagina_scroll/img/img15.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -335,7 +335,7 @@ nav{
   background-attachment: fixed;
 }
 .page25{
-  background: url("img/img25.jpg");
+  background: url("pagina_scroll/img/img25.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
