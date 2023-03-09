@@ -174,28 +174,28 @@ nav{
 /*------------------- CONTENIDO ---------------*/
 
 .page1{
-  background: url("/img/img15");
+  background: url("img/img15");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page2{
-  background: url("/pagina_scroll/img/img1.jpg");
+  background: url("/img/img1.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page3{
-  background: url("img/img6.jpg");
+  background: url("/pagina_scroll/img/img16.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 .page4{
-  background: url("/img16.jpg");
+  background: url("pagina_scroll/img16.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
