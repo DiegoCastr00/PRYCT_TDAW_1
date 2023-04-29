@@ -1,0 +1,26 @@
+[
+    {
+      "nombre": "Juan Pérez",
+      "usuario": "@juanperez",
+      "comentario": "Me encantó el producto, definitivamente lo recomiendo.",
+      "imagen":"/img/user1.jpg"
+    },
+    {
+      "nombre": "María García",
+      "usuario": "@mariagarcia",
+      "comentario": "Muy buena atención al cliente, resolvieron todas mis dudas.",
+      "imagen":"/img/user1.jpg"
+    },
+    {
+      "nombre": "Pedro González",
+      "usuario": "@pedrogonzalez",
+      "comentario": "El envío llegó en el tiempo estimado y en perfectas condiciones.",
+      "imagen":"/img/user1.jpg"
+    },
+    {
+      "nombre": "Ana López",
+      "usuario": "@analopez",
+      "comentario": "Excelente calidad de los productos, los volvería a comprar sin dudarlo.",
+      "imagen":"../img/user1.jpg"
+    }
+  ]

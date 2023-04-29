@@ -7,16 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap"
+      rel="stylesheet">
     <title>Dante Elvira</title>
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-    />
+      />
+      <script src="https://kit.fontawesome.com/c8e4d183c2.js"
+            crossorigin="anonymous"></script>
     <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-      <link rel="stylesheet" href="styles/users.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/users.css" />
   </head>
   <body>
     <div class="header__wrapper" id="uP">
@@ -41,7 +49,7 @@
             <p>
               you're not the boss of me now <br>
               Amante del cine y la guerra <br>
-              DM'me 
+              DM'me
             </p>
           </div>
         </div>
@@ -49,60 +57,56 @@
           <nav>
             <ul class="nav nav-tabs" id="myTab" role="tablist">
               <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Favs</button>
+                <button class="nav-link active" id="home-tab"
+                  data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+                  type="button" role="tab" aria-controls="home-tab-pane"
+                  aria-selected="true">Favs</button>
               </li>
               <li class="nav-item" role="presentation">
-                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Saved</button>
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                  data-bs-target="#profile-tab-pane" type="button" role="tab"
+                  aria-controls="profile-tab-pane" aria-selected="false">Saved</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="comments-tab" data-bs-toggle="tab"
+                  data-bs-target="#comments-tab-pane" type="button" role="tab"
+                  aria-controls="comments-tab-pane" aria-selected="false">Comments</button>
               </li>
             </ul>
             <div class="tab-content" id="myTabContent">
-              <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+              <div class="tab-pane fade show active" id="home-tab-pane"
+                role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                 <div class="row">
-                  <div class="column">
-                    <img alt="photo 1" class="grilla" src="img/ae1.jpg"/>
-                    <img alt="photo 4" class="grilla" src="img/img_3.avif"/>
-                    <img alt="photo 3" class="grilla" src="img/ae3.jpg"/>
-                    <img alt="photo 1" class="grilla" src="img/img_4.avif"/>
-                  </div>
-                
-                  <div class="column">
-                    <img alt="photo 2" class="grilla" src="img/ae2.jpg"/>
-                    <img alt="photo 3" class="grilla" src="img/img_2.avif"/>
-                    <img alt="photo 4" class="grilla" src="img/ae4.jpg"/>
-                    <img alt="photo 4" class="grilla" src="img/ae3.jpg"/>
-                  </div>
-                
-                  <div class="column">
-                    <img alt="photo 1" class="grilla" src="img/ae1.jpg"/>
-                    <img alt="photo 2" class="grilla" src="img/ae2.jpg"/>
-                    <img alt="photo 2" class="grilla" src="img/img_1.avif"/>
-                    <img alt="photo 3" class="grilla" src="img/img_2.avif"/>
-                  </div>
-                
-                  <div class="column">
-                    <img alt="photo 4" class="grilla" src="img/img_3.avif"/>
-                    <img alt="photo 1" class="grilla" src="img/img_4.avif"/>
-                    <img alt="photo 3" class="grilla" src="img/ae3.jpg"/>
-                    <img alt="photo 4" class="grilla" src="img/ae4.jpg"/>
-                  </div>
                 </div>
               </div>
-              <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                  <img class="nope" src="img/sad-face-in-rounded-square.png" alt="nope">
-                  <p id="ad">Aún no hay contenido</p>
-                  <p id="desc">Todo el contenido que subas aparecerá aquí</p>
+              <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel"
+                aria-labelledby="profile-tab" tabindex="0">
+                <img class="nope" src="/img/sad.png"
+                  alt="nope">
+                <p id="ad">Aún no hay contenido</p>
+                <p id="desc">Todo el contenido que subas aparecerá aquí</p>
+              </div>
+              <div class="tab-pane fade" id="comments-tab-pane" role="tabpanel"
+                aria-labelledby="comments-tab" tabindex="0">
+                  <div class="sectionC" ></div>
               </div>
             </div>
-          </nav>        
+          </nav>
         </div>
-          <script src="js/bootstrap.min.js"></script>
-        
-          <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>    
-    <script src="code.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
-  </body>
-</html>
-
-
+        <script src="js/bootstrap.min.js"></script>
+        <!-- Plugin JavaScript -->
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+        <script src="code.js"></script>
+        <script
+          src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+          integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+          crossorigin="anonymous"></script>
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+          integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+          crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+          <script src="/js/users.js"></script>
+      </body>
+    </html>
