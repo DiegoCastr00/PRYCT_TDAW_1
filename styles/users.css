@@ -24,7 +24,6 @@ a {
 
 .header__wrapper header {
   width: 100%;
-  background: url("../img/bg.jpeg") no-repeat 50% 20% / cover;
   min-height: calc(100px + 15vw);
 }
 
@@ -115,6 +114,7 @@ a {
 .header__wrapper .cols__container .content ul i {
   font-size: 1.3rem;
 }
+
 .header__wrapper .cols__container .right__col nav {
   display: flex;
   align-items: center;
@@ -138,7 +138,7 @@ a {
   background: #0091ff;
   color: #fff;
   border: none;
-  font-size: 2.3vh;
+  font-size: 1.8vh;
   padding: 10px 25px;
   border-radius: 4px;
   cursor: pointer;
@@ -146,8 +146,8 @@ a {
   margin-bottom: 10px;
   vertical-align: middle;
   align-content: center;
-  height: 9%;
-  width: 53%;
+  height: fit-content;
+  width: fit-content;
 }
 
 #JK:hover{
@@ -190,9 +190,7 @@ a {
     margin: 0;
     margin-right: auto;
   }
-  .header__wrapper .cols__container .right__col nav {
-    flex-direction: row;
-  }
+  
   .header__wrapper .cols__container .right__col nav button {
     margin-top: 0;
   }
@@ -228,7 +226,7 @@ img{
 
 @media (max-width: 800px){
   .column{
-      flex: 33%;
+      flex: 25%;
   }
 }
 
@@ -269,12 +267,12 @@ a{
   font-size: 2.2rem;
   font-weight: 500;
   background-color: #202020;
-  color: #ffffff;
+  color: #9e9e9e;
   padding: 10px 20px;
 }
 .testimonial-heading span{
   font-size: 1.3rem;
-  color: #252525;
+  color: #f5f5f5;
   margin-bottom: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -289,7 +287,7 @@ a{
 .testimonial-box{
   width:500px;
   box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
-  background-color: #ffffff;
+  background-color: #282828;
   padding: 20px;
   margin: 15px;
   cursor: pointer;
@@ -316,12 +314,12 @@ a{
   flex-direction: column;
 }
 .name-user strong{
-  color: #3d3d3d;
+  color: #ffffff;
   font-size: 1.1rem;
   letter-spacing: 0.5px;
 }
 .name-user span{
-  color: #979797;
+  color: #e3e3e3;
   font-size: 0.8rem;
 }
 .reviews{
@@ -335,7 +333,7 @@ a{
 }
 .client-comment p{
   font-size: 0.9rem;
-  color: #4b4b4b;
+  color: #ffffff;
 }
 .testimonial-box:hover{
   transform: translateY(-10px);
@@ -344,7 +342,7 @@ a{
 
 @media(max-width:1060px){
   .testimonial-box{
-      width:45%;
+      width:100%;
       padding: 10px;
   }
 }
@@ -370,4 +368,15 @@ a{
 ::selection{
   color: #ffffff;
   background-color: #252525;
+}
+
+
+.nope{
+  width: 50%;
+  margin: 15% 25% 15% 25%;
+}
+
+#profile-tab-pane{
+   color:#f5f5f5;
+   text-align: center;
 }

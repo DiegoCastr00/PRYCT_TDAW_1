@@ -9,20 +9,22 @@ function myFunction(element) {
   }
 
 const seccionimg = document.querySelector(".row");
-for (let i = 0; i < 3; i++) {
+for (let i = 1; i < 5; i++) {
     const column = document.createElement("div");
     column.className ="column";
-    for (let i = 0; i < 3; i++) {
+    for (let j = 1; j <5; j++) {
         const img = document.createElement("img");
-        img.alt ="photo "+ toString(i);
+        img.alt ="photo "+ j;
         img.className = "grilla";
         const randomNum = Math.floor(Math.random() * 25) + 1;
-        console.log(randomNum);
         img.src = "/img/img" + randomNum + ".jpg";
         column.appendChild(img);
     }
     seccionimg.appendChild(column);
 }
+
+const portada = document.querySelector(".header__wrapper header");
+portada.style.background = 'url("/img/img'+(Math.floor(Math.random() * 25) + 1)+'.jpg") no-repeat 50% 20% / cover'; // Modifica la propiedad CSS
 
 
 const area = document.querySelector(".sectionC");
@@ -42,15 +44,35 @@ axios.get('/json/comments.json')
         const photo = document.createElement("div");
         photo.className = "profile-img";
         const img = document.createElement("img");
-        img.src = datos[i].imagen;
+        const randomNum = Math.floor(Math.random() * 25) + 1;
+        img.src = "/img/img" + randomNum + ".jpg";
         const name = document.createElement("div");
         name.className ="name-user";
-
+        const namep = document.createElement("strong");
+        namep.textContent = datos[i].nombre;
+        const user = document.createElement("span");
+        user.textContent =datos[i].usuario;
+        const review = document.createElement("div");
+        const text = document.createElement("div");
+        text.className =  "client-comment";
+        const content = document.createElement("p");
+        content.textContent = datos[i].comentario;
+        review.className = "reviews";
+        for(i = 0; i < (Math.floor(Math.random() * 5) + 1) ; i++){
+            const star = document.createElement("i");
+            star.className = "fas fa-star";
+            review.appendChild(star);
+        }
+        text.appendChild(content);
+        name.appendChild(namep);
+        name.appendChild(user);
         photo.appendChild(img);
         profile.appendChild(photo);
         profile.appendChild(name);
         top.appendChild(profile);
+        top.appendChild(review)
         test.appendChild(top);
+        test.appendChild(text);
         div.appendChild(test);
     }
     area.appendChild(div);
@@ -58,83 +80,3 @@ axios.get('/json/comments.json')
   .catch(function (error) {
     console.log(error);
   });
-
-
-  /*const test = document.createElement("div");
-        test.className = "testimonial-box";
-
-        const top = document.createElement("div");
-        top.className = "box-top";
-        
-        const profile = document.createElement("div");
-        profile.className = "profile";
-
-        const photo = document.createElement("div");
-        photo.className = "profile-img";
-
-        const img = document.createElement("img");
-        img.src = toString(datos[i].imagen);
-
-        const name = document.createElement("div");
-        name.className ="name-user";
-        const namep = document.createElement("strong");
-        namep.textContent = toString(datos[i].nombre);
-        const user = document.createElement("span");
-        user.textContent = toString(datos[i].usuario);
-        const review = document.createElement("div");
-        review.className = "reviews";
-        for(i = 0; i < 4 ; i++){
-            const star = document.createElement(i);
-            star.className ="fas fa-star";
-            review.appendChild(star);
-        }
-        const text = document.createElement("div");
-        text.className =  "client-comment";
-        const content = document.createElement("p");
-        content.textContent= toString(datos[i].comentario);
-
-        photo.appendChild(img);
-
-        name.appendChild(namep);
-        name.appendChild(user);
-
-        profile.appendChild(photo);
-        profile.appendChild(name);
-
-        top.appendChild(profile);
-        top.appendChild(review);
-
-        test.appendChild(top);
-        test.appendChild(text);
-        
-        area.appendChild(test);
-        
-        /*<div class="testimonial-box">
-                    <!--top------------------------->
-                    <div class="box-top">
-                        <!--profile----->
-                        <div class="profile">
-                            <!--img---->
-                            <div class="profile-img">
-                                <img src="images/c-4.jpg" />
-                            </div>
-                            <!--name-and-username-->
-                            <div class="name-user">
-                                <strong>Oliva</strong>
-                                <span>@Olivaadward</span>
-                            </div>
-                        </div>
-                        <!--reviews------>
-                        <div class="reviews">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i><!--Empty star-->
-                        </div>
-                    </div>
-                    <!--Comments---------------------------------------->
-                    <div class="client-comment">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, quaerat quis? Provident temporibus architecto asperiores nobis maiores nisi a. Quae doloribus ipsum aliquam tenetur voluptates incidunt blanditiis sed atque cumque.</p>
-                    </div>
-                </div>*/
