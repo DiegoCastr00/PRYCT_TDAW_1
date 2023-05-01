@@ -9,40 +9,39 @@
     <link rel="stylesheet" href="styles/inicio_sesion.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="js/validación.js"defer></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="imagenes/sushi.ico">
 </head>
 
 <body>
-    <section>
+    <section >
         <div class="registro">
             <div class="ingresoUsu">
                 <div class="icono">
-                    <i class='bx bxs-sushi'> SUSHI </i>
+                    <i class='bx bxs-sushi'> </i>SUSHI 
                 </div>
-
-                <!--<box-icon type='solid' name='sushi'></box-icon>-->
-                <form action="">
+                <form action="https://scroll-sushi.netlify.app/" onsubmit="return validarFormulario()">
                     <h2>
-                        Registro
+                        Ingresos
                     </h2>
                     <div class="entrada">
                         <ion-icon name="mail-outline"></ion-icon>
-                        <input type="email" name="usuario" id="">
-                        <label for="">Email</label>
+                        <input type="email" name="usuario" id="email" required>
+                        <label id="eml">Email</label>
                     </div>
                     <div class="entrada">
                         <ion-icon name="lock-closed-outline"></ion-icon>
-                        <input type="password" name="contra" id="">
+                        <input type="password" name="contra" id="password" required>
                         <label for="">Contraseña</label>
                     </div>
                     <div class="perdida">
                         <a href="#"> Recuperar contraseña</a>
                     </div>
-                    <div class="boton">
-                        <button>
-                            <a href="https://scroll-sushi.netlify.app/">
+                    
+                    <div class="boton" id>
+                        <button type="submit">
                                 Iniciar sesión
                         </button>
                         </a>

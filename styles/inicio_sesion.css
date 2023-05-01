@@ -6,8 +6,14 @@
     font-family: 'Poppins', sans-serif;
 }
 
+h2 {
+    font-size: 1.5em;
+    color: aliceblue;
+    text-align: center;
+}
+
 section {
-    display: flex;
+    display:flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -28,12 +34,7 @@ section {
     backdrop-filter: blur(15px);
 }
 
-h2 {
-    margin-top: 10px;
-    font-size: 1.5em;
-    color: aliceblue;
-    text-align: center;
-}
+
 
 .entrada {
     position: relative;
@@ -49,11 +50,15 @@ input:valid~label {
 
 .entrada label {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 5px;
-    transform: translateY(-50%);
+    transform: translateY(-100%);
     color: #fff;
     font-size: 1em;
+}
+
+.entrada #eml{
+    transform: translateY(-90%);
 }
 
 .entrada input {
@@ -92,7 +97,7 @@ button {
     border: none;
     outline: none;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 0.9em;
     color: #fff;
 }
 

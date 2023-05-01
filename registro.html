@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>registro</title>
-    <link rel="stylesheet" href="styles/registro.css">
+    <title>Registro</title>
+    <link rel="stylesheet" href="styles/inicio_sesion.css">
+    <script src="js/registro.js" defer ></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="imagenes/sushi.ico">
@@ -16,29 +17,29 @@
     <main>
         <section>
             <div class="registro">
-
                 <div class="regis">
-                    <h2>
-                        <i class='bx bxs-sushi'> SUSHI </i>
-                    </h2>
+                    <div class="icono">
+                        <i class='bx bxs-sushi'></i> SUSHI
+                    </div>
+                    <h2>Registro</h2>
 
-                    <form action="">
+                    <form action="https://inicio-sesion-sushi.netlify.app/" onsubmit="return validarFormulario()">
                         <div class="entrada">
                             <input type="text" name="nombre" id="">
                             <label for="">Nombre</label>
                         </div>
                         <div class="entrada">
-                            <input type="text" name="usuario" id="">
+                            <input type="text" name="usuario" id="usuario">
                             <label for="">Usuario</label>
                         </div>
                         <div class="entrada">
                             <ion-icon name="mail-outline"></ion-icon>
-                            <input type="email" name="usuario" id="">
+                            <input type="email" name="usuario" id="email">
                             <label for="">Email</label>
                         </div>
                         <div class="entrada">
                             <ion-icon name="lock-closed-outline"></ion-icon>
-                            <input type="password" name="contra" id="">
+                            <input type="password" name="contra" id="password">
                             <label for="">Contraseña</label>
                         </div>
                         <div class="entrada">
@@ -47,10 +48,8 @@
                             <label for="">Confirmar contraseña</label>
                         </div>
 
-                        <button>
-                            <a href="https://inicio-sesion-sushi.netlify.app/">
-                                Continuar
-                            </a>
+                        <button type="submit">
+                            Continuar
                         </button>
                     </form>
                 </div>
