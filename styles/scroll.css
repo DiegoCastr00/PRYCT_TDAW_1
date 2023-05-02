@@ -16,28 +16,31 @@ header{
   background-color: black;
   height: 5vh;
   color: #ffffff;
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-areas: 
-  "as title header hedaer hedaer  camara chat user";
+  display: flex;
+  justify-content: space-between; 
   align-items: center;
   justify-items: center;
+
+}
+.header_left{
+  display: flex;
+  margin-left: 20px;
+}
+.header_rigth{
+  display: flex;
+  margin-right: 20px;
 }
 header i{ 
+  margin-right: 1em;
   font-size: 1.5em;
-  grid-area: as;
 }
 header span{
   font-size: 1em;
-  grid-area: title;
 }
 .chat{
-  grid-area: chat;
   color: #ffffff;
 }
-header .nav_user{
-  grid-area: user;
-}
+
 .nav_user img{
   border-radius: 50%;
   width: 1.5em;
@@ -163,5 +166,3 @@ header .nav_user{
   display: flex;
   justify-content: center;
 }
-
-
