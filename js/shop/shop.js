@@ -18,8 +18,3 @@ window.onscroll = () => {
 };
 
 
-
-document.querySelector('#compra').onclick = () =>{
-	document.querySelector(".carrito").style.display = "block";
-}
-

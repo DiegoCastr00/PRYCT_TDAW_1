@@ -1,12 +1,8 @@
 var carritoVisible = true;
 
 //Espermos que todos los elementos de la pàgina cargen para ejecutar el script
-if(document.readyState == 'loading'){
-    document.addEventListener('DOMContentLoaded', ready)
-}else{
-    ready();
-}
 
+ready();
 function ready(){
     
     //Agregremos funcionalidad a los botones eliminar del carrito
@@ -37,6 +33,7 @@ function ready(){
         button.addEventListener('click', agregarAlCarritoClicked);
     }
 
+    document.getElementsByClassName('btn-pagar')[0].addEventListener('click',validateForm)
     document.getElementsByClassName('btn-cancelar')[0].addEventListener('click',pagarClicked)
 }
 
@@ -48,10 +45,7 @@ function agregarAlCarritoClicked(event){
     var precio = item.getElementsByClassName('precio-item')[0].innerText;
     var imagenSrc = item.getElementsByClassName('img-item')[0].src;
     console.log(imagenSrc);
-
     agregarItemAlCarrito(titulo, precio, imagenSrc);
-
-    
 }
 
 document.querySelector("#compra").onclick = () =>{
@@ -155,19 +149,15 @@ function eliminarItemCarrito(event){
     var buttonClicked = event.target;
     buttonClicked.parentElement.parentElement.remove();
     //Actualizamos el total del carrito
-    actualizarTotalCarrito();
-
-    
+    actualizarTotalCarrito(); 
 }
 
 function validateForm() {
     var divExists = document.querySelector(".container_carrito_items");
     if (divExists) {
         checkCheckbox()
-        
     } else {
       alert("No hay elementos");
-
     }
   }
 
@@ -176,8 +166,9 @@ function validateForm() {
     div.textContent =  "";
   }
 
+  var checkbox = document.getElementById("myCheckbox");
   function checkCheckbox() {
-    var checkbox = document.getElementById("myCheckbox");
+    
     if (checkbox.checked) {
         alert("Gracias por la compra");
         pagarClicked()
@@ -204,7 +195,5 @@ function actualizarTotalCarrito(){
         total = total + (precio * cantidad);
     }
     total = Math.round(total * 100)/100;
-
     document.getElementsByClassName('carrito-precio-total')[0].innerText = '$'+total.toLocaleString("es") + ",00";
-
 }

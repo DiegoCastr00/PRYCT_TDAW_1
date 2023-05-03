@@ -6,6 +6,7 @@
 	font-family: 'Poppins', sans-serif;
 	text-decoration: none;
 	scroll-behavior: smooth;
+
 }
 :root{
 	--bg-color: #ffffff;
@@ -20,6 +21,7 @@
 body{
 	background: var(--bg-color);
 	color: var(--text-color);
+    
 }
 header{
 	width: 100%;
