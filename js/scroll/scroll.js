@@ -47,13 +47,25 @@ fetch('json/scroll.json')
       const likes = document.createElement('div');
       likes.className = 'container__navbar-likes';
       navbarOptions.appendChild(likes);
+
       const ico_heart = document.createElement('span');
       ico_heart.className = 'bx bxs-heart';
       likes.appendChild(ico_heart);
       const no_like = document.createElement('p');
       no_like.textContent = image.likes;
-      likes.appendChild(no_like);
+      let likeCount = parseInt(image.likes);
+  
+      likes.addEventListener('click', () => {
+        if (likes.classList.contains('liked')) {
+          likeCount -= 1;
+        } else {
+          likeCount += 1;
+        }
+        no_like.textContent = likeCount;
+        likes.classList.toggle('liked');
+      });
 
+      likes.appendChild(no_like);
       const share = document.createElement('div');
       share.className = 'container__navbar-share';
       navbarOptions.appendChild(share);
@@ -82,3 +94,6 @@ fetch('json/scroll.json')
     });
   })
   .catch(error => console.error(error));
+
+
+  
