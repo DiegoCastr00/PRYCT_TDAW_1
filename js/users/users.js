@@ -230,3 +230,27 @@ function send() {
   });
 
 }
+
+
+// Edit profile photo
+function readURL(input) {
+  if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+          document.querySelector('.img__container img').src =  e.target.result;
+      }
+      reader.readAsDataURL(input.files[0]);
+  }
+}
+
+document.getElementById('imageUpload').addEventListener('change', function() {
+  readURL(this);
+});
+
+
+///
+/*if user == principal {
+}
+query selector ('.header__wrapper .cols__container .left__col .img__container span')
+background = none
+border = none*/
