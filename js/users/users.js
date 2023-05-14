@@ -1,3 +1,42 @@
+//New tabs function 
+var tabButtons=document.querySelectorAll(".tabContainer .buttonContainer button");
+var tabPanels=document.querySelectorAll(".tabContainer  .tabPanel");
+
+function showPanel(panelIndex) {
+    tabButtons.forEach(function(node){
+        node.style.backgroundColor="";
+        node.style.color="";
+    });
+    tabButtons[panelIndex].style.backgroundColor='white';
+    tabButtons[panelIndex].style.color='rgb(46, 46, 46';
+    tabPanels.forEach(function(node){
+        node.style.display="none";
+    });
+    tabPanels[panelIndex].style.display="block";
+    //tabPanels[panelIndex].style.backgroundColor='';
+}
+showPanel(0,'#f44336');
+
+/*Funcion upload images */
+const fileInput = document.getElementById('imageUpload');
+const preview = document.getElementById('imagePreview');
+
+if (fileInput.files.length > 0) {
+  const fileReader = new FileReader();
+  
+  fileReader.readAsDataURL(fileInput.files[0]);
+  
+  fileReader.onload = () => {
+    console.log('Uploading');
+    preview.style.backgroundImage = `url(${fileReader.result})`;
+  };
+  
+} else {
+  // No se ha subido ningún archivo
+}
+
+
+/*First version*/
 function myFunction(element) {
   if (element.innerHTML == 'Follow +') {
     element.innerHTML = 'Followed ✓';

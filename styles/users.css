@@ -7,7 +7,7 @@ body {
   box-sizing: border-box;
   min-height: 100vh;
   font-family: "Poppins", sans-serif;
-  background-color: #100F0F;
+  background-color: #100f0f;
 }
 
 ul {
@@ -73,7 +73,7 @@ a {
   margin: 0;
 }
 .header__wrapper .cols__container .left__col .about {
-  justify-content:space-around;
+  justify-content: space-around;
   position: relative;
   margin: 20px 0;
 }
@@ -98,7 +98,7 @@ a {
   margin-bottom: -2px;
 }
 .header__wrapper .cols__container .content p {
-  font-size: .9rem;
+  font-size: 0.9rem;
   color: #ffff;
   line-height: 1.8em;
 }
@@ -138,7 +138,7 @@ a {
   background: #0091ff;
   color: #fff;
   border: none;
-  font-size: 1.8vh;
+  font-size: 0.9rem;
   padding: 10px 25px;
   border-radius: 4px;
   cursor: pointer;
@@ -150,14 +150,13 @@ a {
   width: fit-content;
 }
 
-#JK:hover{
+#JK:hover {
   background-color: #0071ff;
 }
 
 .header__wrapper .cols__container .right__col nav button:hover {
   opacity: 0.8;
 }
-
 
 /* Responsiveness */
 
@@ -190,71 +189,71 @@ a {
     margin: 0;
     margin-right: auto;
   }
-  
+
   .header__wrapper .cols__container .right__col nav button {
     margin-top: 0;
   }
 }
 
-*{
+* {
   box-sizing: border-box;
 }
 
-body{
+body {
   margin: 0;
   padding: 0;
 }
 
-img{
+img {
   width: 100%;
 }
 
-.row{
+.row {
   display: flex;
   padding: 5px;
   flex-wrap: wrap;
 }
 
-.column{
+.column {
   flex: 25%;
   padding: 5px;
 }
 
-.column img{
+.column img {
   margin-top: 5px;
 }
 
-@media (max-width: 800px){
-  .column{
-      flex: 25%;
+@media (max-width: 800px) {
+  .column {
+    flex: 25%;
   }
 }
 
-@media (max-width: 600px){
-  .column{
-      flex: 50%;
+@media (max-width: 600px) {
+  .column {
+    flex: 50%;
   }
 }
 
 /*coments styles*/
 
-*{
+* {
   margin: 0px;
   padding: 0px;
   font-family: poppins;
   box-sizing: border-box;
 }
-a{
+a {
   text-decoration: none;
 }
-#testimonials{
+#testimonials {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width:100%;
+  width: 100%;
 }
-.testimonial-heading{
+.testimonial-heading {
   letter-spacing: 1px;
   margin: 30px 0px;
   padding: 10px 20px;
@@ -263,148 +262,144 @@ a{
   justify-content: center;
   align-items: center;
 }
-.testimonial-heading h1{
+.testimonial-heading h1 {
   font-size: 2.2rem;
   font-weight: 500;
   background-color: #202020;
   color: #9e9e9e;
   padding: 10px 20px;
 }
-.testimonial-heading span{
-  font-size: 1.3rem;
+.testimonial-heading span {
+  font-size: 1rem;
   color: #f5f5f5;
   margin-bottom: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
-.testimonial-box-container{
+.testimonial-box-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  width:100%;
+  width: 100%;
 }
-.testimonial-box{
-  width:500px;
-  box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+.testimonial-box {
+  width: 500px;
+  box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.1);
   background-color: #282828;
   padding: 20px;
-  margin: 15px;
+  margin: 1rem;
   cursor: pointer;
 }
-.profile-img{
-  width:50px;
+.profile-img {
+  width: 50px;
   height: 50px;
   border-radius: 50%;
   overflow: hidden;
   margin-right: 10px;
 }
-.profile-img img{
+.profile-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
 }
-.profile{
+.profile {
   display: flex;
   align-items: center;
 }
-.name-user{
+.name-user {
   display: flex;
   flex-direction: column;
 }
-.name-user strong{
+.name-user strong {
   color: #ffffff;
   font-size: 1.1rem;
   letter-spacing: 0.5px;
 }
-.name-user span{
+.name-user span {
   color: #e3e3e3;
   font-size: 0.8rem;
 }
-.reviews{
+.reviews {
   color: #f9d71c;
 }
-.box-top{
+.box-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
-.client-comment p{
+.client-comment p {
   font-size: 0.9rem;
   color: #ffffff;
 }
-.testimonial-box:hover{
+.testimonial-box:hover {
   transform: translateY(-10px);
   transition: all ease 0.3s;
 }
 
-@media(max-width:400px){
-  .testimonial-box{
-      width:100%;
-      padding: 10px;
+@media (max-width: 400px) {
+  .testimonial-box {
+    margin-left: 2vw;
   }
 }
-@media(max-width:700px){
-  .testimonial-box{
-      width:80%;
-      margin-left: 10%;
-  }
-  .testimonial-heading h1{
-      font-size: 1.4rem;
-  }
-  #profile-tab-pane{
+@media (max-width: 700px) {
+  .testimonial-box {
     width: 80%;
     margin-left: 10%;
- }
- .row{
-  width: 95%;
-  margin-left: 2%;
- }
-
+  }
+  .testimonial-heading h1 {
+    font-size: 1.4rem;
+  }
+  #profile-tab-pane {
+    width: 80%;
+    margin-left: 10%;
+  }
+  .row {
+    width: 90%;
+    margin-left: 5%;
+  }
 }
 
-.left__col{
+.left__col {
   width: 100%;
- }
+}
 
-@media(max-width:340px){
-  .box-top{
-      flex-wrap: wrap;
-      margin-bottom: 10px;
+@media (max-width: 340px) {
+  .box-top {
+    flex-wrap: wrap;
+    margin-bottom: 10px;
   }
-  .reviews{
-      margin-top: 10px;
+  .reviews {
+    margin-top: 10px;
   }
 }
 
-::selection{
+::selection {
   color: #ffffff;
   background-color: #252525;
 }
-
 
 .nope {
   width: 50%;
   margin: 15% 25% 15% 25%;
 }
 
-#profile-tab-pane{
-   color:#f5f5f5;
-   text-align: center;
-   width: 80%;
-   margin-left: 10%;
+#profile-tab-pane {
+  color: #f5f5f5;
+  text-align: center;
+  width: 80%;
+  margin-left: 10%;
 }
 
-
-.grilla{
+.grilla {
   border-radius: 10px;
   margin: 2px;
 }
 
 /*stars*/
-*{
+* {
   margin: 0;
   padding: 0;
 }
@@ -414,27 +409,27 @@ a{
   padding: 0 10px;
 }
 .rate:not(:checked) > input {
-  position:absolute;
-  top:-9999px;
+  position: absolute;
+  top: -9999px;
 }
 .rate:not(:checked) > label {
-  float:right;
-  width:1em;
-  overflow:hidden;
-  white-space:nowrap;
-  cursor:pointer;
-  font-size:30px;
-  color:#ccc;
+  float: right;
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 30px;
+  color: #ccc;
 }
 .rate:not(:checked) > label:before {
-  content: '★ ';
+  content: "★ ";
 }
 .rate > input:checked ~ label {
-  color: #ffc700;    
+  color: #ffc700;
 }
 .rate:not(:checked) > label:hover,
 .rate:not(:checked) > label:hover ~ label {
-  color: #deb217;  
+  color: #deb217;
 }
 .rate > input:checked + label:hover,
 .rate > input:checked + label:hover ~ label,
@@ -444,14 +439,13 @@ a{
   color: #c59b08;
 }
 
-
 /*form*/
- .textarea{
+.textarea {
   height: 100px;
   width: 100%;
   overflow: hidden;
 }
- .textarea textarea{
+.textarea textarea {
   height: 100%;
   width: 100%;
   outline: none;
@@ -462,15 +456,15 @@ a{
   font-size: 17px;
   resize: none;
 }
-.textarea textarea:focus{
+.textarea textarea:focus {
   border-color: #444;
 }
- .btn{
+.btn {
   height: 45px;
   width: 100%;
   margin: 10px 0;
 }
- .btn button{
+.btn button {
   height: 100%;
   width: 100%;
   border: 1px solid #444;
@@ -483,8 +477,71 @@ a{
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.btn button:hover{
+.btn button:hover {
   background: #1b1b1b;
 }
 
+/*New tabs*/
+.tabContainer {
+  margin-bottom: 15%;
+  margin-top: 2rem;
+}
+.tabContainer .buttonContainer {
+  height: 15%;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+.tabContainer .buttonContainer button {
+  width: max-content;
+  padding: 2vh 4vw 2vh 4vw;
+  height: 100%;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #0071ff;
+  border-radius: 10px 10px 0px 0px;
+  margin-right: 0.2rem;
+  font-size: 0.95rem;
+}
 
+.tabContainer .tabPanel {
+  color: white;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  padding-top: 0.5rem;
+  font-size: 1.2rem;
+  display: none;
+}
+
+#format {
+  border-bottom: white 0.1rem solid;
+  width: fit-content;
+}
+
+
+@media (max-width: 700px) {
+  .row {
+    width: 90%;
+    margin-left: 5%;
+  }
+}
+
+
+#format {
+  margin: auto;
+}
+
+.sectionC {
+  margin: auto;
+  width: fit-content;
+}
+
+div.tabPanel:nth-child(4) {
+  display: none;
+  align-items: stretch;
+ }
+ 
+ /*Avatar*/
+ 
