@@ -254,3 +254,41 @@ document.getElementById('imageUpload').addEventListener('change', function() {
 query selector ('.header__wrapper .cols__container .left__col .img__container span')
 background = none
 border = none*/
+
+
+//Drag and drop
+const dropArea = document.getElementById('drop-area');
+
+dropArea.addEventListener('dragover', (event) => {
+  event.preventDefault();
+  dropArea.classList.add('highlight');
+});
+
+dropArea.addEventListener('dragleave', () => {
+  dropArea.classList.remove('highlight');
+});
+
+dropArea.addEventListener('drop', (event) => {
+  event.preventDefault();
+  dropArea.classList.remove('highlight');
+  const fileList = event.dataTransfer.files;
+  handleFiles(fileList);
+});
+
+const fileElem = document.getElementById('fileElem');
+fileElem.addEventListener('change', (event) => {
+  const fileList = event.target.files;
+  handleFiles(fileList);
+});
+
+function handleFiles(fileList) {
+  const gallery = document.getElementById('imagenp');
+  gallery.innerHTML = '';
+  const file = fileList[0];
+  if (!file.type.startsWith('image/')){ return }
+  const img = document.createElement('img');
+  img.src = URL.createObjectURL(file);
+  gallery.appendChild(img);
+  const instructions = document.querySelector('#drop-area p');
+  instructions.style.display = 'none';
+}

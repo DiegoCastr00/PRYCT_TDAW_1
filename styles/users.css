@@ -520,14 +520,12 @@ a {
   width: fit-content;
 }
 
-
 @media (max-width: 700px) {
   .row {
     width: 90%;
     margin-left: 5%;
   }
 }
-
 
 #format {
   margin: auto;
@@ -541,10 +539,10 @@ a {
 div.tabPanel:nth-child(4) {
   display: none;
   align-items: stretch;
- }
- 
- /*Avatar*/
- .avatar-edit {
+}
+
+/*Avatar*/
+.avatar-edit {
   position: absolute;
   z-index: 1;
   bottom: 0.5px;
@@ -563,15 +561,102 @@ div.tabPanel:nth-child(4) {
   font-weight: normal;
 }
 
-
-
-#iedit{
+#iedit {
   color: white;
   margin-top: 0.5rem;
 }
 
-.avatar-edit label{
+.avatar-edit label {
   display: block;
   text-align: center;
+}
+
+/*Drag and drop */
+
+.dragDrop {
+  display: flex;
+  justify-content: center;
+}
+
+#drop-area {
+  border: 2px dashed #ccc;
+  border-radius: 20px;
+  width: 100%;
+  margin: 2rem auto 1.5rem auto;
+  text-align: center;
+}
+#drop-area p{
+  margin-top: 1.5rem;
+}
+
+#drop-area.highlight {
+  background-color: #eee;
+}
+
+.newpostform {
+  margin-bottom: 10px;
+}
+
+.button-newpost {
+  display: inline-block;
+  padding: 1rem 1.5rem 1rem 1.5rem;
+  background-color: #ccc;
+  border-radius: 100%;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 800;
+  margin: 2rem;
+}
+
+#imagenp img {
+  margin-top: 2rem;
+  width: 70%;
+}
+
+#progress-bar {
+  display: none;
+  margin-top: 10px;
+  width: 100%;
+}
+
+#fileElem {
+  display: none;
+}
+
+.newpostform {
+  width: 80%;
+ }
+
+ .newpostform div:first-child{
+  width: 80%;
+  margin:auto;
+ }
+
+
+ /*styke for newpost inputtext and submit*/
+ .newpostform textarea {
+  border-radius: 8px;
+  height: 100px;
+  width: 100%;
+  resize: none;
+  outline: 0;
+  padding: 8px 14px;
+  background-color: #222;
+  color: white;
+  border: 1px solid rgb(219, 213, 213);
+  margin-bottom: 1rem;
+}
+
+.newpostform button {
+  align-self: flex-end;
+  padding: 8px;
+  outline: 0;
+  border: 0;
+  border-radius: .5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: #0091ff;
+  color: #fff;
+  float: right;
 }
  
