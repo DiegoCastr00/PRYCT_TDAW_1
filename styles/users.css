@@ -557,7 +557,7 @@ div.tabPanel:nth-child(4) {
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  background: #FFFFFF;
+  background: #0091ff;
   border: 1px solid transparent;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
   font-weight: normal;
@@ -566,7 +566,7 @@ div.tabPanel:nth-child(4) {
 
 
 #iedit{
-  color: #222;
+  color: white;
   margin-top: 0.5rem;
 }
 
