@@ -150,7 +150,14 @@ header span{
   grid-area: likes;
   justify-content: center;
 }
-
+span.bx.bxs-heart{
+  color: white;
+  transition: color 0.5s;
+  z-index: 1;
+}
+span.bx.bxs-heart.active {
+  color: red;
+}
 
 
 .container__navbar-share{

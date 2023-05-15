@@ -65,6 +65,11 @@ fetch('json/scroll.json')
         likes.classList.toggle('liked');
       });
 
+
+      ico_heart.addEventListener("click", function() {
+        ico_heart.classList.toggle("active");
+      });
+
       likes.appendChild(no_like);
       const share = document.createElement('div');
       share.className = 'container__navbar-share';
