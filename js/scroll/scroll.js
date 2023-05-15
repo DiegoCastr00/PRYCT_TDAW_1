@@ -62,12 +62,13 @@ fetch('json/scroll.json')
           likeCount += 1;
         }
         no_like.textContent = likeCount;
-        likes.classList.toggle('liked');
+   
       });
 
 
       ico_heart.addEventListener("click", function() {
         ico_heart.classList.toggle("active");
+
       });
 
       likes.appendChild(no_like);
