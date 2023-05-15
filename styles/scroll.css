@@ -150,7 +150,25 @@ header span{
   grid-area: likes;
   justify-content: center;
 }
+span.bx.bxs-heart{
+  color: white;
+  transition: color 0.5s;
+  z-index: 1;
+-webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
 
+span.bx.bxs-heart::after{
+  font-size: 1px;
+	-webkit-transition: all 0.2s ease-in-out;
+	        transition: all 0.2s ease-in-out;
+  color: red;
+}
+span.bx.bxs-heart.active {
+  font-size: 2.3em;
+	opacity: 1;
+  color: red;
+}
 
 
 .container__navbar-share{
