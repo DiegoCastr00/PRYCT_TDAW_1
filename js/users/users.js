@@ -77,7 +77,7 @@ seccionimg.appendChild(listaimg);
 //   seccionimg.appendChild(column);
 // }
 
-const portada = document.querySelector(".header__wrapper header");
+const portada = document.querySelector("header");
 portada.style.background = 'url("/img/img' + (Math.floor(Math.random() * 25) + 1) + '.jpg") no-repeat 50% 20% / cover'; // Modifica la propiedad CSS
 
 

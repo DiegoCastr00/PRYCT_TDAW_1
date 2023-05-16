@@ -10,6 +10,11 @@ body {
   background-color: #100f0f;
 }
 
+header {
+  width: 100%;
+  min-height: calc(100px + 15vw);
+}
+
 ul {
   list-style-type: none;
   margin: 0;
@@ -22,10 +27,10 @@ a {
   text-decoration: none;
 }
 
-.header__wrapper header {
+/* .header__wrapper header {
   width: 100%;
   min-height: calc(100px + 15vw);
-}
+} */
 
 .header__wrapper .cols__container .left__col {
   padding: 25px 20px;
