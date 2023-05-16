@@ -21,7 +21,9 @@ app.use(cors());
 
 app.get("/", (req, res) => {
     res.json("hello there");
-});app.listen(8080, ()=>{
+});
+
+app.listen(8080, ()=>{
     console.log("CONNECTEED");
 });
 
