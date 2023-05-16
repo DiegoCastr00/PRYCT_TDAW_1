@@ -4,6 +4,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import multer from "multer";
 import path from "path";
+import { fileURLToPath } from "url";
 
 const PORT = 8081;
 const app = express();
@@ -30,16 +31,16 @@ app.get("/", (req, res) => {
   res.json("hello there");
 });
 
-// Configurar Multer para la carga de archivos
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const storage = multer.diskStorage({
-  destination: "./uploads/posts",
+  destination: path.join(__dirname, "../uploads/posts/"), // Ruta relativa al directorio actual del archivo
   filename: (req, file, cb) => {
-    cb(
-      null,
-      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-    );
+    cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname));
   },
 });
+
 const upload = multer({
   storage: storage,
   limits: { fileSize: 1000000 },
@@ -51,10 +52,8 @@ app.post("/upload", (req, res) => {
     if (err) {
       res.status(400).send({ message: "Ocurrió un error al cargar la imagen" });
     } else {
-      const imagePath = req.file.path.replace("\\", "/");
-      const imageUrl = `http://localhost:${
-        process.env.PORT || PORT
-      }/${imagePath}`;
+      const imagePath = path.join("uploads/posts", req.file.filename);
+      const imageUrl = `http://localhost:${process.env.PORT || PORT}/${imagePath}`;
       res.status(200).send({ url: imageUrl });
     }
   });
