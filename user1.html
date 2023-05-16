@@ -1,71 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cecilia D.</title>
-    <link rel="stylesheet" href="/styles/users.css" />
-  </head>
-  <body>
-    <div class="header__wrapper" id="u1">
-      <header></header>
-      <div class="cols__container">
-        <div class="left__col">
-          <div class="img__container">
-            <img src="img/user1.jpg" alt="Cecilia D." />
-            <span></span>
-          </div>
-          <h2>Cecilia D.</h2>
 
-          <p>@delrep_</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/jpg" href="img/sushi.ico" />
+  <title>Cecilia D.</title>
+  <link rel="stylesheet" href="/styles/users.css" />
+</head>
 
-          <ul class="about">
-            <li><span>234</span>Followers</li>
-            <li><span>400</span>Following</li>
-          </ul>
-          <button id="JK" onclick="myFunction(this)">Follow +</button>
-          <div class="content">
-            <p>
-              Sag baby <br>
-              My life is not ur business <br>
-              🌓
-            </p>
-          </div>
+<body>
+  <header></header>
+  <main class="header__wrapper" id="u1">
+    <section class="cols__container">
+      <section class="left__col">
+        <div class="img__container">
+          <img src="img/user1.jpg" alt="Cecilia D." />
+          <span></span>
         </div>
-        <div class="right__col">
-          <div class="tabContainer">
-            <div class="buttonContainer">
-              <div id="format">
-                <button onclick="showPanel(0)">Favs</button>
-                <button onclick="showPanel(1)">New Post</button>
-                <button onclick="showPanel(2)">Comments</button>
+        <h2>Cecilia D.</h2>
+
+        <p>@delrep_</p>
+
+        <ul class="about">
+          <li><span>234</span>Followers</li>
+          <li><span>400</span>Following</li>
+        </ul>
+        <button id="JK" onclick="myFunction(this)">Follow +</button>
+        <div class="content">
+          <p>
+            Sag baby <br>
+            My life is not ur business <br>
+            🌓
+          </p>
+        </div>
+      </section>
+
+      <section class="right__col">
+        <div class="tabContainer">
+          <div class="buttonContainer">
+            <div id="format">
+              <button onclick="showPanel(0)">Favs</button>
+              <button onclick="showPanel(1)">New Post</button>
+              <button onclick="showPanel(2)">Comments</button>
+            </div>
+          </div>
+          <div class="tabPanel">
+            <div class="row">
+            </div>
+          </div>
+          <div class="tabPanel">
+            <div class="upload">
+              <div class="edit">
+                <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                <label for="imageUpload"></label>
+              </div>
+              <div class="post-preview">
+                <div id="imagePreview">
+                  holi
+                </div>
               </div>
             </div>
-            <div class="tabPanel">
-              <div class="row">
-              </div>
-            </div>
-            <div class="tabPanel">
-                <div class="upload">
-                    <div class="edit">
-                        <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
-                        <label for="imageUpload"></label>
-                    </div>
-                    <div class="post-preview">
-                        <div id="imagePreview">
-                          holi
-                        </div>
-                    </div>
-            </div>
-            </div>
-            <div class="tabPanel">
-              <div class="sectionC"></div>
-            </div>
+          </div>
+          <div class="tabPanel">
+            <div class="sectionC"></div>
           </div>
         </div>
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script src="/js/users/ViewUsers.js"></script>
-        <script src="/js/users/APIUsers.js"></script>
-      </body>
-    </html>
+      </section>>
+    </section>>
+  </main>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="/js/users/users.js"></script>
+</body>
+
+</html>
+

@@ -45,23 +45,39 @@ function myFunction(element) {
   else
     element.innerHTML = 'Follow +';
 }
-
+/*Second version*/
 const seccionimg = document.querySelector(".row");
-for (let i = 1; i < 5; i++) {
-  const column = document.createElement("div");
-  column.className = "column";
-  for (let j = 1; j < 5; j++) {
+const listaimg = document.createElement("ul");
+listaimg.className = "listaI";
+  for (let j = 1; j < 31; j++) {
+    const pimg = document.createElement("li");
+    pimg.className = "imglist";
     const img = document.createElement("img");
-    img.alt = "photo " + j;
-    img.className = "grilla";
+    
+    img.className = "imgFavs";
     const randomNum = Math.floor(Math.random() * 25) + 1;
     img.src = "/img/img" + randomNum + ".jpg";
-    column.appendChild(img);
+    img.alt = "photo " + j;
+    pimg.appendChild(img);
+    listaimg.appendChild(pimg);
   }
-  seccionimg.appendChild(column);
-}
+seccionimg.appendChild(listaimg);
 
-const portada = document.querySelector(".header__wrapper header");
+// for (let i = 1; i < 5; i++) {
+//   const column = document.createElement("div");
+//   column.className = "column";
+//   for (let j = 1; j < 6; j++) {
+//     const img = document.createElement("img");
+//     img.alt = "photo " + j;
+//     img.className = "grilla";
+//     const randomNum = Math.floor(Math.random() * 25) + 1;
+//     img.src = "/img/img" + randomNum + ".jpg";
+//     column.appendChild(img);
+//   }
+//   seccionimg.appendChild(column);
+// }
+
+const portada = document.querySelector("header");
 portada.style.background = 'url("/img/img' + (Math.floor(Math.random() * 25) + 1) + '.jpg") no-repeat 50% 20% / cover'; // Modifica la propiedad CSS
 
 
