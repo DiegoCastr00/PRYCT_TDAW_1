@@ -3,7 +3,9 @@ import mysql from "mysql";
 import cors from "cors";
 import bodyParser from "body-parser";
 import multer from "multer";
+import path from "path";
 
+const PORT = 8081;
 const app = express();
 const db = mysql.createConnection({
   host: "localhost",
@@ -30,7 +32,7 @@ app.get("/", (req, res) => {
 
 // Configurar Multer para la carga de archivos
 const storage = multer.diskStorage({
-  destination: "./uploads/",
+  destination: "./uploads/posts",
   filename: (req, file, cb) => {
     cb(
       null,
@@ -51,31 +53,10 @@ app.post("/upload", (req, res) => {
     } else {
       const imagePath = req.file.path.replace("\\", "/");
       const imageUrl = `http://localhost:${
-        process.env.PORT || 8080
+        process.env.PORT || PORT
       }/${imagePath}`;
       res.status(200).send({ url: imageUrl });
     }
-  });
-});
-
-app.post("/addEvento", (req, res) => {
-  console.log("si pero no");
-  console.log(req.body);
-  const q =
-    "INSERT INTO reserva (`startDateTime`, `endDateTime`, `descripcion`,`tipo`, `usuario`, `numLab`) VALUES (?)";
-  const values = [
-    req.body.start,
-    req.body.end,
-    req.body.descripcion,
-    req.body.tipo,
-    req.body.usuario,
-    req.body.numLab,
-  ];
-  console.log(values);
-  db.query(q, [values], (err, data) => {
-    if (err) return res.json(err);
-    console.log("se guardo con exito");
-    return res.json(data);
   });
 });
 
@@ -83,11 +64,26 @@ app.post("/addEvento", (req, res) => {
 app.post("/createPost", (req, res) => {
   const imageUrl = req.body.imageUrl;
   const postText = req.body.postText;
-  const q = 'INSERT INTO post '
-  res.status(200).send({ message: "Post creado exitosamente" });
+  const partesURL = imageUrl.split("/");
+  const archivoConRuta = partesURL[partesURL.length - 1];
+  const nombreArchivo = archivoConRuta.split("\\").pop();
+  console.log("si entra");
+  console.log(imageUrl);
+  console.log(postText);
+  const q = "INSERT INTO `post` (`image`, `description`, `user`) VALUES (?);";
+  const values = [nombreArchivo, postText, "prueba"];
+  console.log(values);
+  db.query(q, [values], (err, data) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ message: "Error al guardar el post" });
+    }
+    console.log("se guardo con exito");
+    return res.status(200).json({ message: "Post creado exitosamente" });
+  });
 });
 
 //Listening server
-app.listen(8080, () => {
-  console.log("CONNECTEED");
+app.listen(PORT, () => {
+  console.log(`listening on port ${PORT}`);
 });

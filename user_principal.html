@@ -62,7 +62,7 @@
           </div>
           <div class="tabPanel">
             <div class="dragDrop">
-              <form class="newpostform">
+              <form class="newpostform" enctype="multipart/form-data">
                 <div>
                   <div id="drop-area">
                     <p>Drag and Drop a Image File</p>
@@ -72,7 +72,7 @@
                   </div>
                   <textarea placeholder="Venga! Escribe algo para acompañar tu foto"></textarea>
 
-                  <button>Publicar</button>
+                  <button id="submitbtn">Publicar</button>
                 </div>
               </form>
             </div>
@@ -86,5 +86,6 @@
   </main>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/js/users/users.js"></script>
+  <script src="/js/users/APIUsers.js"></script>
 </body>
 </html>

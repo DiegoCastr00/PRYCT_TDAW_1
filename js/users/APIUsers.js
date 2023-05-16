@@ -1,41 +1,38 @@
-const submitPost = document.querySelector("#submitbtn");
+const form = document.querySelector(".newpostform");
 const descriptionPost = document.querySelector(".newpostform textarea");
 const imagePost = document.querySelector("#fileElem");
-submitPost.addEventListener("click", (event) => {
+
+form.addEventListener("submit", (event) => {
   event.preventDefault();
-  const imagePost = document.querySelector("#fileElem").files[0];
+
+  const imageFile = imagePost.files[0];
   const formData = new FormData();
   formData.append("photo", imageFile);
+
   axios
-    .post("/upload", formData)
+    .post("http://localhost:8081/upload", formData)
     .then((response) => {
-      // Obtener la URL de la imagen cargada
       const imageUrl = response.data.url;
+      const postText = descriptionPost.value;
 
-      // Obtener el texto del post
-      const postText = document.getElementById("postText").value;
-
-      // Crear un objeto con los datos del formulario
       const postData = {
         imageUrl: imageUrl,
         postText: postText,
       };
-      
+
       axios
-        .post("/createPost", postData)
+        .post("http://localhost:8081/createPost", postData)
         .then((response) => {
-          // Mostrar un mensaje de éxito
-          alert(response.data.message);
+          confirm(response.data.message);
+          form.reset(); // Restablecer el formulario después de enviarlo con éxito
         })
         .catch((error) => {
-          // Mostrar un mensaje de error
-          alert("Ocurrió un error al crear el post");
           console.error(error);
+          confirm("Ocurrió un error al crear el post");
         });
     })
     .catch((error) => {
-      // Mostrar un mensaje de error
-      alert("Ocurrió un error al cargar la imagen");
       console.error(error);
+      confirm("Ocurrió un error al cargar la imagen");
     });
 });
