@@ -14,7 +14,7 @@ form.addEventListener("submit", (event) => {
     .then((response) => {
       const imageUrl = response.data.url;
       const postText = descriptionPost.value;
-
+      descriptionPost.value = "";
       const postData = {
         imageUrl: imageUrl,
         postText: postText,
@@ -25,6 +25,7 @@ form.addEventListener("submit", (event) => {
         .then((response) => {
           confirm(response.data.message);
           form.reset(); // Restablecer el formulario después de enviarlo con éxito
+           // Restablecer el formulario después de enviarlo con éxito
         })
         .catch((error) => {
           console.error(error);
