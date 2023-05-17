@@ -28,14 +28,17 @@ app.post("/", (req, res) => {
 });
 
 app.get("/", (req, res) => {
+  console.log(req.headers);
   res.json("hello there");
 });
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+app.use(express.static(path.join(__dirname, "../public")));
+
 const storage = multer.diskStorage({
-  destination: path.join(__dirname, "../uploads/posts/"), // Ruta relativa al directorio actual del archivo
+  destination: path.join(__dirname, "../public/uploads/posts/"),
   filename: (req, file, cb) => {
     cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname));
   },
@@ -46,14 +49,13 @@ const upload = multer({
   limits: { fileSize: 1000000 },
 }).single("photo");
 
-// Manejar la carga de archivos utilizando Multer
 app.post("/upload", (req, res) => {
   upload(req, res, (err) => {
     if (err) {
       res.status(400).send({ message: "Ocurrió un error al cargar la imagen" });
     } else {
       const imagePath = path.join("uploads/posts", req.file.filename);
-      const imageUrl = `http://localhost:${process.env.PORT || PORT}/${imagePath}`;
+      const imageUrl = `http://localhost:${process.env.PORT || 8081}/${imagePath}`;
       res.status(200).send({ url: imageUrl });
     }
   });
@@ -63,14 +65,10 @@ app.post("/upload", (req, res) => {
 app.post("/createPost", (req, res) => {
   const imageUrl = req.body.imageUrl;
   const postText = req.body.postText;
-  const partesURL = imageUrl.split("/");
-  const archivoConRuta = partesURL[partesURL.length - 1];
-  const nombreArchivo = archivoConRuta.split("\\").pop();
-  console.log("si entra");
   console.log(imageUrl);
   console.log(postText);
   const q = "INSERT INTO `post` (`image`, `description`, `user`) VALUES (?);";
-  const values = [nombreArchivo, postText, "prueba"];
+  const values = [imageUrl, postText, "prueba"];
   console.log(values);
   db.query(q, [values], (err, data) => {
     if (err) {
@@ -86,3 +84,5 @@ app.post("/createPost", (req, res) => {
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
+
+
