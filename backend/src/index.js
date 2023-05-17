@@ -80,6 +80,52 @@ app.post("/createPost", (req, res) => {
   });
 });
 
+//guardar cambios usuario
+const storageProfiles = multer.diskStorage({
+  destination: path.join(__dirname, "../public/uploads/profiles/"),
+  filename: (req, file, cb) => {
+    cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname));
+  },
+});
+
+const uploadProfiles = multer({
+  storage: storageProfiles,
+  limits: { fileSize: 1000000 },
+}).single("photo");
+
+app.post("/upload/profiles", (req, res) => {
+  uploadProfiles(req, res, (err) => {
+    if (err) {
+      res.status(400).send({ message: "Ocurrió un error al cargar la imagen" });
+    } else {
+      const imagePath = path.join("uploads/profiles", req.file.filename);
+      const imageUrl = `http://localhost:${process.env.PORT || 8081}/${imagePath}`;
+      res.status(200).send({ url: imageUrl });
+    }
+  });
+});
+
+app.post("/updateUser", (req, res) => {
+  const imageUrl = req.body.imageUrl;
+  const postText = req.body.postText;
+  console.log(imageUrl);
+  console.log(postText);
+  const q = "UPDATE usuario SET descripcion = ?, photo = ? WHERE (user = '@diego_el');";
+  //UPDATE `inject`.`usuario` SET `descripcion` = 'No me gusta ser social', `photo` = 'photo124' WHERE (`user` = '@diego_el');
+  const values = [postText, imageUrl];
+  console.log(values);
+  db.query(q, values, (err, data) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ message: "Error al actualizar la información" });
+    }
+    console.log("se guardo con exito");
+    return res.status(200).json({ message: "Informacion actualizada exitosamente" });
+  });
+});
+
+
+
 //Listening server
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
