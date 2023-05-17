@@ -308,3 +308,6 @@ function handleFiles(fileList) {
   const instructions = document.querySelector('#drop-area p');
   instructions.style.display = 'none';
 }
+
+
+//Show edit areas
