@@ -115,12 +115,24 @@ app.post("/updateUserPhoto", (req, res) => {
       console.error(err);
       return res.status(500).json({ message: "Error al actualizar la foto" });
     }
-    console.log("se guardo con exito");
+    console.log("se guardo con exito la foto");
     return res.status(200).json({ message: "Foto actualizada exitosamente" });
   });
 });
 
+app.post('/updateDescription', (req, res) => {
+  const { description } = req.body;
 
+  const q = "UPDATE usuario SET descripcion = ? WHERE user = '@diego_el';";
+  db.query(q, [description], (err, data) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ message: "Error al actualizar la descripción" });
+    }
+    console.log("Se guardó con éxito la descripción");
+    return res.status(200).json({ message: "Descripción actualizada exitosamente" });
+  });
+});
 
 //Listening server
 app.listen(PORT, () => {

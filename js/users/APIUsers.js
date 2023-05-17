@@ -73,4 +73,15 @@ saveChangesButton.addEventListener("click", (event) => {
         confirm("Ocurrió un error al cargar la imagen");
       });
   }
+
+  const description = biography.value;
+  axios.post('/updateDescription', { description })
+    .then((response) => {
+      console.log(response.data.message);
+      // Realizar acciones adicionales si es necesario
+    })
+    .catch((error) => {
+      console.error(error);
+      // Manejar el error de alguna manera
+    });
 });
