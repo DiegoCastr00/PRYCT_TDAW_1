@@ -17,25 +17,6 @@ function showPanel(panelIndex) {
 }
 showPanel(0,'#f44336');
 
-/*Funcion upload images */
-const fileInput = document.getElementById('imageUpload');
-const preview = document.getElementById('imagePreview');
-
-if (fileInput.files.length > 0) {
-  const fileReader = new FileReader();
-  
-  fileReader.readAsDataURL(fileInput.files[0]);
-  
-  fileReader.onload = () => {
-    console.log('Uploading');
-    preview.style.backgroundImage = `url(${fileReader.result})`;
-  };
-  
-} else {
-  // No se ha subido ningún archivo
-}
-
-
 /*First version*/
 function myFunction(element) {
   if (element.innerHTML == 'Follow +') {
@@ -311,3 +292,30 @@ function handleFiles(fileList) {
 
 
 //Show edit areas
+const editBtn = document.querySelector('#EditUser');
+editBtn.addEventListener('click', function(e) {
+    const spanActive = document.querySelector('#spanAct');
+    const editAvatar =  document.querySelector('#EditPhoto');
+    const description = document.querySelector('.content p');
+    const editDescription = document.querySelector('#editDescription');
+    const saveChanges = document.querySelector('#SaveChanges');
+    if(spanActive.className == 'spanActive'){
+        spanActive.className = 'spanActiveHide';
+        editAvatar.className = 'avatar-edit';
+        description.style.display = 'none';
+        editDescription.value = (description.innerHTML
+          .replace(/\s+/g, ' ')
+          .replace(/<br>/g, '\n')).trim();
+        editDescription.style.display = 'block';
+        editBtn.style.display = 'none';
+        saveChanges.syle.display = 'block';
+    }
+    else{
+      spanActive.className = 'spanActive';
+      editAvatar.className = 'avatar-editHide';
+      description.style.display = 'block';
+      editDescription.style.display = 'none';
+      editBtn.style.display = 'block';
+      saveChanges.syle.display = 'none';
+    }
+})

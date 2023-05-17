@@ -22,28 +22,29 @@
         <div class="img__container">
         <img src="/img/userP.jpg" alt="Dante Elvira" />
           <span class="spanActive" id="spanAct">
-            <div class="avatar-editHide" id="EditPhoto">
-              <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
-              <label for="imageUpload"><i id="iedit" class="fa-solid
+            <form class="avatar-editHide" id="EditPhoto" enctype="multipart/form-data">
+              <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" form="EditPhoto"/>
+              <label form="EditPhoto" for="imageUpload"><i id="iedit" class="fa-solid
                     fa-pencil"></i></label>
-            </div>
+              </form>
           </span>
         </div>
         <h2>Dante Elvira</h2>
 
         <p>@dant_c03</p>
-
+        <button class="JK" onclick="myFunction(this)" id="follow">Follow +</button>
         <ul class="about">
           <li><span>34</span>Followers</li>
           <li><span>56</span>Following</li>
         </ul>
-        <button id="JK">Editar ✎</button>
         <div class="content">
           <p>
             Sag baby <br>
-            My life is not ur business <br>
-            🌓
+            My life is not ur business 
           </p>
+          <textarea name="description" id="editDescription" cols="30" rows="20" form="EditPhoto"></textarea>
+          <button class="JK" id="EditUser">Editar ✎</button>
+          <button class="JK" id="SaveChanges" type="submit" form="EditPhoto">Save changes</button>
         </div>
       </section>
 
