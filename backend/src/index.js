@@ -105,22 +105,18 @@ app.post("/upload/profiles", (req, res) => {
   });
 });
 
-app.post("/updateUser", (req, res) => {
+app.post("/updateUserPhoto", (req, res) => {
   const imageUrl = req.body.imageUrl;
-  const postText = req.body.postText;
   console.log(imageUrl);
-  console.log(postText);
-  const q = "UPDATE usuario SET descripcion = ?, photo = ? WHERE (user = '@diego_el');";
+  const q = "UPDATE usuario SET photo = ? WHERE (user = '@diego_el');";
   //UPDATE `inject`.`usuario` SET `descripcion` = 'No me gusta ser social', `photo` = 'photo124' WHERE (`user` = '@diego_el');
-  const values = [postText, imageUrl];
-  console.log(values);
-  db.query(q, values, (err, data) => {
+  db.query(q, [imageUrl], (err, data) => {
     if (err) {
       console.error(err);
-      return res.status(500).json({ message: "Error al actualizar la información" });
+      return res.status(500).json({ message: "Error al actualizar la foto" });
     }
     console.log("se guardo con exito");
-    return res.status(200).json({ message: "Informacion actualizada exitosamente" });
+    return res.status(200).json({ message: "Foto actualizada exitosamente" });
   });
 });
 

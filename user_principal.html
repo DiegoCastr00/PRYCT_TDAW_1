@@ -22,7 +22,7 @@
         <div class="img__container">
         <img src="/img/userP.jpg" alt="Dante Elvira" />
           <span class="spanActive" id="spanAct">
-            <form class="avatar-editHide" id="EditPhoto" enctype="multipart/form-data">
+            <form class="avatar-editHide" id="EditPhoto" >
               <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" form="EditPhoto"/>
               <label form="EditPhoto" for="imageUpload"><i id="iedit" class="fa-solid
                     fa-pencil"></i></label>
@@ -43,8 +43,8 @@
             My life is not ur business 
           </p>
           <textarea name="description" id="editDescription" cols="30" rows="20" form="EditPhoto"></textarea>
+          <button class="JK" id="SaveChanges" form="EditPhoto" type="submit">Save changes</button>
           <button class="JK" id="EditUser">Editar ✎</button>
-          <button class="JK" id="SaveChanges" type="submit" form="EditPhoto">Save changes</button>
         </div>
       </section>
 
