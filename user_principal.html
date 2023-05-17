@@ -42,7 +42,7 @@
             Sag baby <br>
             My life is not ur business 
           </p>
-          <textarea name="description" id="editDescription" cols="30" rows="20" form="EditPhoto"></textarea>
+          <textarea name="description" id="editDescription" cols="30" rows="20" form="EditPhoto" maxlength="40"></textarea>
           <button class="JK" id="SaveChanges" form="EditPhoto" type="submit">Save changes</button>
           <button class="JK" id="EditUser">Editar ✎</button>
         </div>
@@ -71,7 +71,7 @@
                     <input type="file" id="fileElem" accept="image/*" onchange="handleFiles(this.files)">
                     <label class="button-newpost" for="fileElem">+</label>
                   </div>
-                  <textarea placeholder="Venga! Escribe algo para acompañar tu foto"></textarea>
+                  <textarea placeholder="Venga! Escribe algo para acompañar tu foto" maxlength="150"></textarea>
 
                   <button id="submitbtn">Publicar</button>
                 </div>
