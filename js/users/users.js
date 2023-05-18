@@ -308,14 +308,7 @@ editBtn.addEventListener('click', function(e) {
           .replace(/<br>/g, '\n')).trim();
         editDescription.style.display = 'block';
         editBtn.style.display = 'none';
-        saveChanges.syle.display = 'block';
-    }
-    else{
-      spanActive.className = 'spanActive';
-      editAvatar.className = 'avatar-editHide';
-      description.style.display = 'block';
-      editDescription.style.display = 'none';
-      editBtn.style.display = 'block';
-      saveChanges.syle.display = 'none';
+        saveChanges.style.display = 'inline';
     }
 })
+

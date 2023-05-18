@@ -43,6 +43,11 @@ const biography = document.querySelector('#editDescription');
 const NewPhotoUser = document.querySelector('#imageUpload');
 const saveChangesButton = document.querySelector('#SaveChanges');
 
+const spanActive = document.querySelector('#spanAct');
+const editAvatar =  document.querySelector('#EditPhoto');
+const des = document.querySelector('.content p');
+
+
 saveChangesButton.addEventListener("click", (event) => {
   event.preventDefault(); // Prevenir el comportamiento predeterminado del botón
 
@@ -75,7 +80,7 @@ saveChangesButton.addEventListener("click", (event) => {
   }
 
   const description = biography.value;
-  axios.post('/updateDescription', { description })
+  axios.post('http://localhost:8081/updateDescription', { description })
     .then((response) => {
       console.log(response.data.message);
       // Realizar acciones adicionales si es necesario
@@ -84,4 +89,11 @@ saveChangesButton.addEventListener("click", (event) => {
       console.error(error);
       // Manejar el error de alguna manera
     });
+    form.reset();
+    saveChangesButton.style.display='none';
+    spanActive.className = 'spanActive';
+    editAvatar.className = 'avatar-editHide';
+    des.style.display = 'block';
+    biography.style.display = 'none';
+    editBtn.style.display = 'inline';
 });
