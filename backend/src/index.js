@@ -134,6 +134,32 @@ app.post('/updateDescription', (req, res) => {
   });
 });
 
+// Ruta para iniciar sesión
+app.post('/LogIn', (req, res) => {
+  const { correo, contrasena } = req.body;
+
+  // Consulta SQL para verificar el correo y contraseña en la base de datos
+  const consulta = `SELECT * FROM usuario WHERE email = ? AND password = ?`;
+  const values = [correo, contrasena];
+
+  db.query(consulta, values, (err, data) => {
+    if (err) {
+      console.error('Error al ejecutar la consulta:', err);
+      res.status(500).json({ mensaje: 'Error en el servidor' })
+    }
+    if (data.length > 0) {
+      // Autenticación exitosa, enviar los datos del usuario como respuesta
+      res.json(data[0].user);
+    } else {
+      // Credenciales inválidas
+      res.status(401).json({ mensaje: 'Credenciales inválidas' });
+    }
+  });
+});
+
+
+
+
 //Listening server
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
