@@ -34,7 +34,7 @@ formulario.addEventListener('submit', async (event) => {
       const { user } = await iniciarSesion(email, password);
       console.log(user);
       // Autenticación exitosa, redireccionar a otra página con el ID del usuario en la URL
-      window.location.href = `../../user_principal.html?id=${user}`;
+      window.location.href = `../../scroll.html?id=${user}`;
     } catch (error) {
       // Error en la autenticación, manejar el error
       console.error(error);
