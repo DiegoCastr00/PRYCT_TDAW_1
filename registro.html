@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
     <link rel="stylesheet" href="styles/inicio_sesion.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
     <script src="js/inicio_registro/registro.js" defer ></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
@@ -23,7 +24,7 @@
                     </div>
                     <h2>Registro</h2>
 
-                    <form action="inicio_sesion.html" onsubmit="return validarFormulario()">
+                    <form action="inicio_sesion.html" onsubmit="return validarFormulario()" id="SignUp">
                         <div class="entrada">
                             <input type="text" name="nombre" id="nombre">
                             <label for="">Nombre</label>

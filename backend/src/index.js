@@ -139,7 +139,7 @@ app.post('/LogIn', (req, res) => {
   const { correo, contrasena } = req.body;
 
   // Consulta SQL para verificar el correo y contraseña en la base de datos
-  const consulta = `SELECT * FROM usuario WHERE email = ? AND password = ?`;
+  const consulta = `SELECT user FROM usuario WHERE email = ? AND password = ?`;
   const values = [correo, contrasena];
 
   db.query(consulta, values, (err, data) => {
@@ -148,6 +148,7 @@ app.post('/LogIn', (req, res) => {
       res.status(500).json({ mensaje: 'Error en el servidor' })
     }
     if (data.length > 0) {
+      console.log(data[0].user);
       // Autenticación exitosa, enviar los datos del usuario como respuesta
       res.json(data[0].user);
     } else {
@@ -157,8 +158,51 @@ app.post('/LogIn', (req, res) => {
   });
 });
 
+app.get('/allPost', (req, res) => {
+  const consulta = 'SELECT p.image as url, u.nombre as autor, p.description as descripcion, u.photo as image, u.user as urlprofile, p.likes, p.share, COALESCE(comentarios.cantidad, 0) as comments FROM post AS p INNER JOIN usuario AS u ON p.user = u.user LEFT JOIN ( SELECT c.post_idPost, COUNT(c.post_idPost) AS cantidad FROM comment AS c GROUP BY c.post_idPost ) AS comentarios ON p.idPost = comentarios.post_idPost;';
+  db.query(consulta, (err, data) => {
+    if (err) return res.json(err);
 
+    const formattedData = data.map(item => {
+      const { image, urlprofile, ...rest } = item;
+      return {
+        ...rest,
+        profile: {
+          image,
+          urlprofile
+        }
+      };
+    });
 
+    res.json(formattedData);
+  });
+});
+
+app.post('/NewUser', function(req, res){
+  const user = req.body.user;
+  const name = req.body.name;
+  const correo = req.body.email;
+  const contraseña = req.body.password;
+  const values = [user, name, correo, contraseña];
+  console.log(values);
+  const sql = 'INSERT INTO usuario (`user`, `nombre`, `email`, `password`) VALUES (?) ;';
+  db.query(sql, [values], (err, data) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).json({ message: "Error al crear nuevo usuario" });
+    }
+    res.json({ message: "Usuario creado exitosamente, usted será redirigido al inicio de sesion" });
+  });
+})
+
+app.get('/infoUser', (req, res) => {
+  const user = req.body.user;
+  const consulta = 'SELECT user, nombre, email, descripcion, followers, following, photo FROM usuario WHERE USER = ?;';
+  db.query(consulta, [user], (err, data) => {
+    if (err) return res.json(err);
+    res.json(data);
+  });
+});
 
 //Listening server
 app.listen(PORT, () => {
