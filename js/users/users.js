@@ -60,7 +60,35 @@ axios
       listaimg.appendChild(pimg);
     }
     seccionimg.appendChild(listaimg);
-    console.log(response.data); // Manejar la respuesta JSON aquí
+    console.log(response.data);
+    const elements = document.querySelectorAll(".elementoli");
+
+    // Iteramos sobre cada elemento y agregamos un controlador de eventos al botón
+    elements.forEach((element) => {
+      const button = element.querySelector(".bx.bxs-trash");
+      button.addEventListener("click", handleClick);
+    });
+
+    // Controlador de eventos para el clic en el botón
+    function handleClick(event) {
+      const button = event.target;
+      const li = button.parentElement;
+      const image = li.querySelector("img.imgFavs");
+      const alt = image.getAttribute("alt");
+      if (confirm("Está seguro de elimiar este post?") == true) {
+        text = "You pressed OK!";
+        axios.delete(`http://localhost:8081/deletepost/${alt}`)
+            .then(response => {
+                alert(response.data);
+                location.reload();
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    } else {
+        text = "You canceled!";
+    }
+    } 
   })
   .catch((error) => {
     console.error(error);

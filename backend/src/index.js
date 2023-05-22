@@ -167,19 +167,22 @@ app.get('/allPost', (req, res) => {
     if (err) return res.json(err);
 
     const formattedData = data.map(item => {
-      const { image, urlprofile, ...rest } = item;
+      const { url, image, urlprofile, ...rest } = item;
       return {
         ...rest,
+        url: url.replace(/\\/g, '/'), // Reemplaza las diagonales dobles invertidas por diagonales normales en el campo 'url'
         profile: {
-          image,
-          urlprofile
+          ...rest.profile,
+          image: image.replace(/\\/g, '/'), // Reemplaza las diagonales dobles invertidas por diagonales normales en el campo 'profile.image'
+          urlprofile: urlprofile // Agrega la propiedad 'urlprofile' al objeto 'profile'
         }
       };
     });
-
     res.json(formattedData);
   });
 });
+
+
 
 app.post('/NewUser', function(req, res){
   const user = req.body.user;
@@ -239,6 +242,19 @@ app.get('/DisplayUsuario', (req, res) => {
     }
     res.json(result); // Enviar el resultado de la consulta como JSON
   });
+});
+
+app.delete('/deletepost/:id', (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+  const q = 'DELETE FROM post WHERE idPost = ?;';
+  db.query(q, [id],(err, data) => {
+      if (err) {
+          res.status(500).send('Error al elimar el post');
+        } else {
+          res.send(`Post eliminado`);
+        }
+  })
 });
 
 //Listening server
