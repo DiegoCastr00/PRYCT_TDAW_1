@@ -1,12 +1,11 @@
-// function validarFormulario(email, password) {
-//   const vaEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-//   const vaPassword = /^.{6,12}$/;
-//   if (!vaEmail.test(email) || !vaPassword.test(password)) {
+function validarFormulario(email, password) {
+   const vaEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+   const vaPassword = /^.{6,12}$/;
+//  if (!vaEmail.test(email) || !vaPassword.test(password)) {
 //     alert("Por favor, ingrese un correo electrónico válido y una contraseña con al menos 6 caracteres.");
 //     return false;
 //   }
-//   return true;
-// }
+   return true; }
 
 // Función para iniciar sesión
 const iniciarSesion = async (correo, contrasena) => {
@@ -27,7 +26,6 @@ formulario.addEventListener('submit', async (event) => {
   var password = document.getElementById("password").value; 
   console.log(email);
   console.log(password);
-  alert(validarFormulario(email, password));
   if (validarFormulario(email, password)) {
     try {
       const user = await iniciarSesion(email, password);
