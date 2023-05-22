@@ -214,6 +214,18 @@ app.get('/photoUser', (req, res) => {
 });
 
 
+app.get('/imagesPost', (req, res) => {
+  const user = req.query.user;
+  const query = "SELECT `image` FROM `post` WHERE `user` = ?";
+  // Ejecutar la consulta en la base de datos
+  db.query(query, [user] ,(err, result) => {
+    if (err) {
+      throw err;
+    }
+    res.json(result); // Enviar el resultado de la consulta como JSON
+  });
+});
+
 //Listening server
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);

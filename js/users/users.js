@@ -1,48 +1,61 @@
-//New tabs function 
-var tabButtons=document.querySelectorAll(".tabContainer .buttonContainer button");
-var tabPanels=document.querySelectorAll(".tabContainer  .tabPanel");
+//New tabs function
+var tabButtons = document.querySelectorAll(
+  ".tabContainer .buttonContainer button"
+);
+var tabPanels = document.querySelectorAll(".tabContainer  .tabPanel");
+
+
 
 function showPanel(panelIndex) {
-    tabButtons.forEach(function(node){
-        node.style.backgroundColor="";
-        node.style.color="";
-    });
-    tabButtons[panelIndex].style.backgroundColor='white';
-    tabButtons[panelIndex].style.color='rgb(46, 46, 46';
-    tabPanels.forEach(function(node){
-        node.style.display="none";
-    });
-    tabPanels[panelIndex].style.display="block";
-    //tabPanels[panelIndex].style.backgroundColor='';
+  tabButtons.forEach(function (node) {
+    node.style.backgroundColor = "";
+    node.style.color = "";
+  });
+  tabButtons[panelIndex].style.backgroundColor = "white";
+  tabButtons[panelIndex].style.color = "rgb(46, 46, 46";
+  tabPanels.forEach(function (node) {
+    node.style.display = "none";
+  });
+  tabPanels[panelIndex].style.display = "block";
+  //tabPanels[panelIndex].style.backgroundColor='';
 }
-showPanel(0,'#f44336');
+showPanel(0, "#f44336");
 
 /*First version*/
 function myFunction(element) {
-  if (element.innerHTML == 'Follow +') {
-    element.innerHTML = 'Followed ✓';
-    element.style.fontsize = '2vh';
-  }
-  else
-    element.innerHTML = 'Follow +';
+  if (element.innerHTML == "Follow +") {
+    element.innerHTML = "Followed ✓";
+    element.style.fontsize = "2vh";
+  } else element.innerHTML = "Follow +";
 }
+
+axios
+  .get("http://localhost:8081/imagesPost", {
+    params: {
+      user: "prueba",
+    },
+  })
+  .then((response) => {
+    const seccionimg = document.querySelector(".row");
+    const listaimg = document.createElement("ul");
+    listaimg.className = "listaI";
+    for (let i = 0; i < response.data.length; i++) {
+      const pimg = document.createElement("li");
+      pimg.className = "imglist";
+      const img = document.createElement("img");
+      img.className = "imgFavs";
+      img.src = response.data[i].image;
+      img.alt = "photo " + i;
+      pimg.appendChild(img);
+      listaimg.appendChild(pimg);
+    }
+    seccionimg.appendChild(listaimg);
+    console.log(response.data); // Manejar la respuesta JSON aquí
+  })
+  .catch((error) => {
+    console.error(error);
+  });
 /*Second version*/
-const seccionimg = document.querySelector(".row");
-const listaimg = document.createElement("ul");
-listaimg.className = "listaI";
-  for (let j = 1; j < 31; j++) {
-    const pimg = document.createElement("li");
-    pimg.className = "imglist";
-    const img = document.createElement("img");
-    
-    img.className = "imgFavs";
-    const randomNum = Math.floor(Math.random() * 25) + 1;
-    img.src = "/img/img" + randomNum + ".jpg";
-    img.alt = "photo " + j;
-    pimg.appendChild(img);
-    listaimg.appendChild(pimg);
-  }
-seccionimg.appendChild(listaimg);
 
 // for (let i = 1; i < 5; i++) {
 //   const column = document.createElement("div");
@@ -59,12 +72,15 @@ seccionimg.appendChild(listaimg);
 // }
 
 const portada = document.querySelector("header");
-portada.style.background = 'url("/img/img' + (Math.floor(Math.random() * 25) + 1) + '.jpg") no-repeat 50% 20% / cover'; // Modifica la propiedad CSS
-
+portada.style.background =
+  'url("/img/img' +
+  (Math.floor(Math.random() * 25) + 1) +
+  '.jpg") no-repeat 50% 20% / cover'; // Modifica la propiedad CSS
 
 const area = document.querySelector(".sectionC");
 
-axios.get('/json/comments.json')
+axios
+  .get("/json/comments.json")
   .then(function (response) {
     createForm();
     send();
@@ -94,7 +110,7 @@ axios.get('/json/comments.json')
       const content = document.createElement("p");
       content.textContent = datos[i].comentario;
       review.className = "reviews";
-      for (i = 0; i < (Math.floor(Math.random() * 5) + 1); i++) {
+      for (i = 0; i < Math.floor(Math.random() * 5) + 1; i++) {
         const star = document.createElement("i");
         star.className = "fas fa-star";
         review.appendChild(star);
@@ -106,7 +122,7 @@ axios.get('/json/comments.json')
       profile.appendChild(photo);
       profile.appendChild(name);
       top.appendChild(profile);
-      top.appendChild(review)
+      top.appendChild(review);
       test.appendChild(top);
       test.appendChild(text);
       div.appendChild(test);
@@ -116,7 +132,6 @@ axios.get('/json/comments.json')
   .catch(function (error) {
     console.log(error);
   });
-
 
 function createForm() {
   const test = document.createElement("div");
@@ -148,7 +163,7 @@ function createForm() {
   const text = document.createElement("div");
   text.className = "textarea";
   const textA = document.createElement("textarea");
-  textA.style.width = "100%"
+  textA.style.width = "100%";
   textA.placeholder = " Describe tu experiencia";
   const btnS = document.createElement("div");
   btnS.className = "btn";
@@ -173,7 +188,9 @@ function send() {
     const proName = document.querySelector(".left__col h2");
     const proUser = document.querySelector(".left__col p:nth-child(3)");
     const photoU = document.querySelector(".img__container img");
-    const botonesDeRadio = document.querySelectorAll('input[type=radio][name=rate]');
+    const botonesDeRadio = document.querySelectorAll(
+      "input[type=radio][name=rate]"
+    );
     const div = document.createElement("div");
     const test = document.createElement("div");
     test.className = "testimonial-box";
@@ -199,7 +216,7 @@ function send() {
     review.className = "reviews";
     botonesDeRadio.forEach((botonDeRadio) => {
       if (botonDeRadio.checked) {
-        for (i = 0; i < botonDeRadio.value ; i++) {
+        for (i = 0; i < botonDeRadio.value; i++) {
           const star = document.createElement("i");
           star.className = "fas fa-star";
           review.appendChild(star);
@@ -213,7 +230,7 @@ function send() {
     profile.appendChild(photo);
     profile.appendChild(name);
     top.appendChild(profile);
-    top.appendChild(review)
+    top.appendChild(review);
     test.appendChild(top);
     test.appendChild(text);
     div.appendChild(test);
@@ -225,25 +242,22 @@ function send() {
     textA.value = "";
     alert("Se ha publicado su comentario correctamente");
   });
-
 }
-
 
 // Edit profile photo
 function readURL(input) {
   if (input.files && input.files[0]) {
-      var reader = new FileReader();
-      reader.onload = function(e) {
-          document.querySelector('.img__container img').src =  e.target.result;
-      }
-      reader.readAsDataURL(input.files[0]);
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      document.querySelector(".img__container img").src = e.target.result;
+    };
+    reader.readAsDataURL(input.files[0]);
   }
 }
 
-document.getElementById('imageUpload').addEventListener('change', function() {
+document.getElementById("imageUpload").addEventListener("change", function () {
   readURL(this);
 });
-
 
 ///
 /*if user == principal {
@@ -252,63 +266,63 @@ query selector ('.header__wrapper .cols__container .left__col .img__container sp
 background = none
 border = none*/
 
-
 //Drag and drop
-const dropArea = document.getElementById('drop-area');
+const dropArea = document.getElementById("drop-area");
 
-dropArea.addEventListener('dragover', (event) => {
+dropArea.addEventListener("dragover", (event) => {
   event.preventDefault();
-  dropArea.classList.add('highlight');
+  dropArea.classList.add("highlight");
 });
 
-dropArea.addEventListener('dragleave', () => {
-  dropArea.classList.remove('highlight');
+dropArea.addEventListener("dragleave", () => {
+  dropArea.classList.remove("highlight");
 });
 
-dropArea.addEventListener('drop', (event) => {
+dropArea.addEventListener("drop", (event) => {
   event.preventDefault();
-  dropArea.classList.remove('highlight');
+  dropArea.classList.remove("highlight");
   const fileList = event.dataTransfer.files;
   handleFiles(fileList);
 });
 
-const fileElem = document.getElementById('fileElem');
-fileElem.addEventListener('change', (event) => {
+const fileElem = document.getElementById("fileElem");
+fileElem.addEventListener("change", (event) => {
   const fileList = event.target.files;
   handleFiles(fileList);
 });
 
 function handleFiles(fileList) {
-  const gallery = document.getElementById('imagenp');
-  gallery.innerHTML = '';
+  const gallery = document.getElementById("imagenp");
+  gallery.innerHTML = "";
   const file = fileList[0];
-  if (!file.type.startsWith('image/')){ return }
-  const img = document.createElement('img');
+  if (!file.type.startsWith("image/")) {
+    return;
+  }
+  const img = document.createElement("img");
   img.src = URL.createObjectURL(file);
   gallery.appendChild(img);
-  const instructions = document.querySelector('#drop-area p');
-  instructions.style.display = 'none';
+  const instructions = document.querySelector("#drop-area p");
+  instructions.style.display = "none";
 }
 
-
 //Show edit areas
-const editBtn = document.querySelector('#EditUser');
-editBtn.addEventListener('click', function(e) {
-    const spanActive = document.querySelector('#spanAct');
-    const editAvatar =  document.querySelector('#EditPhoto');
-    const description = document.querySelector('.content p');
-    const editDescription = document.querySelector('#editDescription');
-    const saveChanges = document.querySelector('#SaveChanges');
-    if(spanActive.className == 'spanActive'){
-        spanActive.className = 'spanActiveHide';
-        editAvatar.className = 'avatar-edit';
-        description.style.display = 'none';
-        editDescription.value = (description.innerHTML
-          .replace(/\s+/g, ' ')
-          .replace(/<br>/g, '\n')).trim();
-        editDescription.style.display = 'block';
-        editBtn.style.display = 'none';
-        saveChanges.style.display = 'inline';
-    }
-})
-
+const editBtn = document.querySelector("#EditUser");
+editBtn.addEventListener("click", function (e) {
+  const spanActive = document.querySelector("#spanAct");
+  const editAvatar = document.querySelector("#EditPhoto");
+  const description = document.querySelector(".content p");
+  const editDescription = document.querySelector("#editDescription");
+  const saveChanges = document.querySelector("#SaveChanges");
+  if (spanActive.className == "spanActive") {
+    spanActive.className = "spanActiveHide";
+    editAvatar.className = "avatar-edit";
+    description.style.display = "none";
+    editDescription.value = description.innerHTML
+      .replace(/\s+/g, " ")
+      .replace(/<br>/g, "\n")
+      .trim();
+    editDescription.style.display = "block";
+    editBtn.style.display = "none";
+    saveChanges.style.display = "inline";
+  }
+});

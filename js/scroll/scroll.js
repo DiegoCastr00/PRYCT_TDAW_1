@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Hacer algo con el valor de "user"
   console.log(user);
   const MainProfileurl = document.querySelector('.nav_user');
-  MainProfileurl.href = `user_principal.html?u=${user}`;
+  MainProfileurl.href = `user1html?u=${user}`;
   // Hacer la solicitud GET al servidor
 axios.get('http://localhost:8081/photoUser', {
   params: {

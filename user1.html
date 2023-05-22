@@ -6,8 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/jpg" href="img/sushi.ico" />
-  <title>Cecilia D.</title>
+  <title>Dante Elvira</title>
   <link rel="stylesheet" href="/styles/users.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <body>
@@ -16,24 +20,28 @@
     <section class="cols__container">
       <section class="left__col">
         <div class="img__container">
-          <img src="img/user1.jpg" alt="Cecilia D." />
-          <span></span>
+        <img src="/img/userP.jpg" alt="Dante Elvira" />
+          <span class="spanActive" id="spanAct">
+            <form class="avatar-editHide" id="EditPhoto" >
+              <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" form="EditPhoto"/>
+              <label form="EditPhoto" for="imageUpload"><i id="iedit" class="fa-solid
+                    fa-pencil"></i></label>
+              </form>
+          </span>
         </div>
-        <h2>Cecilia D.</h2>
-
-        <p>@delrep_</p>
-        
+        <h2>Dante Elvira</h2>
+        <p>@dant_c03</p>
         <ul class="about">
-          <li><span>234</span>Followers</li>
-          <li><span>400</span>Following</li>
+          <li><span>34</span>Followers</li>
+          <li><span>56</span>Following</li>
         </ul>
         <div class="content">
           <p>
             Sag baby <br>
-            My life is not ur business <br>
-            🌓
+            My life is not ur business 
           </p>
-          <button id="JK" onclick="myFunction(this)">Follow +</button>
+          <textarea name="description" id="editDescription" cols="30" rows="20" form="EditPhoto" maxlength="40"></textarea>
+          <button class="JK" onclick="myFunction(this)" id="follow">Follow +</button>
         </div>
       </section>
 
@@ -41,8 +49,8 @@
         <div class="tabContainer">
           <div class="buttonContainer">
             <div id="format">
-              <button onclick="showPanel(0)">Favs</button>
-              <button onclick="showPanel(1)">New Post</button>
+              <button onclick="showPanel(0)">Posts</button>
+              <button onclick="showPanel(1)" style="display: none">New Post</button>
               <button onclick="showPanel(2)">Comments</button>
             </div>
           </div>
@@ -51,28 +59,31 @@
             </div>
           </div>
           <div class="tabPanel">
-            <div class="upload">
-              <div class="edit">
-                <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
-                <label for="imageUpload"></label>
-              </div>
-              <div class="post-preview">
-                <div id="imagePreview">
-                  holi
+            <div class="dragDrop">
+              <form class="newpostform" enctype="multipart/form-data">
+                <div>
+                  <div id="drop-area">
+                    <p>Drag and Drop a Image File</p>
+                    <div id="imagenp"></div>
+                    <input type="file" id="fileElem" accept="image/*" onchange="handleFiles(this.files)">
+                    <label class="button-newpost" for="fileElem">+</label>
+                  </div>
+                  <textarea placeholder="Venga! Escribe algo para acompañar tu foto" maxlength="150"></textarea>
+
+                  <button id="submitbtn">Publicar</button>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
           <div class="tabPanel">
             <div class="sectionC"></div>
           </div>
         </div>
-      </section>>
+      </section>
     </section>>
   </main>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/js/users/users.js"></script>
+  <script src="/js/users/APIUsers.js"></script>
 </body>
-
 </html>
-
