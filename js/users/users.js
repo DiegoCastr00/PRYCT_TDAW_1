@@ -4,6 +4,12 @@ var tabButtons = document.querySelectorAll(
 );
 var tabPanels = document.querySelectorAll(".tabContainer  .tabPanel");
 
+var url = new URL(window.location.href);
+var searchParams = new URLSearchParams(url.search);
+var userP = searchParams.get("u");
+console.log(userP);
+
+
 
 
 function showPanel(panelIndex) {
@@ -12,7 +18,7 @@ function showPanel(panelIndex) {
     node.style.color = "";
   });
   tabButtons[panelIndex].style.backgroundColor = "white";
-  tabButtons[panelIndex].style.color = "rgb(46, 46, 46";
+  tabButtons[panelIndex].style.color = "rgb(46, 46, 46)";
   tabPanels.forEach(function (node) {
     node.style.display = "none";
   });
@@ -32,7 +38,7 @@ function myFunction(element) {
 axios
   .get("http://localhost:8081/imagesPost", {
     params: {
-      user: "prueba",
+      user: userP,
     },
   })
   .then((response) => {
@@ -45,7 +51,7 @@ axios
       const img = document.createElement("img");
       img.className = "imgFavs";
       img.src = response.data[i].image;
-      img.alt = "photo " + i;
+      img.alt = response.data[i].idPost;
       pimg.appendChild(img);
       listaimg.appendChild(pimg);
     }

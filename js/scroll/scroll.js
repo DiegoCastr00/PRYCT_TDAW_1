@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Hacer algo con el valor de "user"
   console.log(user);
   const MainProfileurl = document.querySelector('.nav_user');
-  MainProfileurl.href = `user1html?u=${user}`;
+  MainProfileurl.href = `user_principal.html?u=${user}`;
   // Hacer la solicitud GET al servidor
 axios.get('http://localhost:8081/photoUser', {
   params: {
@@ -75,7 +75,7 @@ fetch('json/prueba.json')
       navbarOptions.appendChild(photo_user);
 
       const user = document.createElement('a');
-      user.href = '../user_principal.html' + "?u=" + encodeURIComponent(image.profile.urlprofile);
+      user.href = '../user1.html' + "?u=" + encodeURIComponent(image.profile.urlprofile);
       const user_profile = document.createElement('img');
       user_profile.setAttribute("src", image.profile.image);
       photo_user.appendChild(user);

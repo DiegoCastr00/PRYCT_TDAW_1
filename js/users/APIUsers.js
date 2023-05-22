@@ -2,6 +2,37 @@ const form = document.querySelector(".newpostform");
 const descriptionPost = document.querySelector(".newpostform textarea");
 const imagePost = document.querySelector("#fileElem");
 
+const profPhoto = document.querySelector("#profilePhoto");
+const nameUser = document.querySelector("#nameUs");
+const usu = document.querySelector("#user");
+const followers = document.querySelector("#fllwers");
+const following = document.querySelector("#fllwing");
+const descrip = document.querySelector(".content p");
+
+var url = new URL(window.location.href);
+var searchParams = new URLSearchParams(url.search);
+var userP = searchParams.get("u");
+console.log(userP);
+
+axios.get('http://localhost:8081/DisplayUsuario', {
+  params: {
+    user: userP 
+  }
+})
+.then(response => {
+  profPhoto.src = response.data[0].photo;
+  profPhoto.alt = response.data[0].nombre;
+  nameUser.textContent = response.data[0].nombre;
+  usu.textContent = response.data[0].user;
+  followers.textContent = response.data[0].followers;
+  following.textContent = response.data[0].following;
+  descrip.textContent = response.data[0].descripcion;
+  console.log(response.data);
+})
+.catch(error => {
+  console.error(error);
+});
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -18,6 +49,7 @@ form.addEventListener("submit", (event) => {
       const postData = {
         imageUrl: imageUrl,
         postText: postText,
+        user: userP
       };
 
       axios
@@ -64,7 +96,7 @@ saveChangesButton.addEventListener("click", (event) => {
       .then((response) => {
         const imageUrl = response.data.url;
         axios
-          .post("http://localhost:8081/updateUserPhoto", { imageUrl })
+          .post("http://localhost:8081/updateUserPhoto", { imageUrl, userP})
           .then((response) => {
             //confirm(response.data.message);
           })
@@ -80,7 +112,7 @@ saveChangesButton.addEventListener("click", (event) => {
   }
 
   const description = biography.value;
-  axios.post('http://localhost:8081/updateDescription', { description })
+  axios.post('http://localhost:8081/updateDescription', { description, userP })
     .then((response) => {
       console.log(response.data.message);
       // Realizar acciones adicionales si es necesario

@@ -65,10 +65,11 @@ app.post("/upload", (req, res) => {
 app.post("/createPost", (req, res) => {
   const imageUrl = req.body.imageUrl;
   const postText = req.body.postText;
+  const user = req.body.user;
   console.log(imageUrl);
   console.log(postText);
   const q = "INSERT INTO `post` (`image`, `description`, `user`) VALUES (?);";
-  const values = [imageUrl, postText, "prueba"];
+  const values = [imageUrl, postText, user];
   console.log(values);
   db.query(q, [values], (err, data) => {
     if (err) {
@@ -107,10 +108,11 @@ app.post("/upload/profiles", (req, res) => {
 
 app.post("/updateUserPhoto", (req, res) => {
   const imageUrl = req.body.imageUrl;
+  const user = req.body.userP;
   console.log(imageUrl);
-  const q = "UPDATE usuario SET photo = ? WHERE (user = '@diego_el');";
+  const q = "UPDATE usuario SET photo = ? WHERE (user = ?);";
   //UPDATE `inject`.`usuario` SET `descripcion` = 'No me gusta ser social', `photo` = 'photo124' WHERE (`user` = '@diego_el');
-  db.query(q, [imageUrl], (err, data) => {
+  db.query(q, [imageUrl, user], (err, data) => {
     if (err) {
       console.error(err);
       return res.status(500).json({ message: "Error al actualizar la foto" });
@@ -121,10 +123,11 @@ app.post("/updateUserPhoto", (req, res) => {
 });
 
 app.post('/updateDescription', (req, res) => {
-  const { description } = req.body;
+  const description = req.body.description;
+  const user = req.body.userP;
 
-  const q = "UPDATE usuario SET descripcion = ? WHERE user = '@diego_el';";
-  db.query(q, [description], (err, data) => {
+  const q = "UPDATE usuario SET descripcion = ? WHERE user = ?;";
+  db.query(q, [description, user], (err, data) => {
     if (err) {
       console.error(err);
       return res.status(500).json({ message: "Error al actualizar la descripción" });
@@ -159,7 +162,7 @@ app.post('/LogIn', (req, res) => {
 });
 
 app.get('/allPost', (req, res) => {
-  const consulta = 'SELECT p.image as url, u.nombre as autor, p.description as descripcion, u.photo as image, u.user as urlprofile, p.likes, p.share, COALESCE(comentarios.cantidad, 0) as comments FROM post AS p INNER JOIN usuario AS u ON p.user = u.user LEFT JOIN ( SELECT c.post_idPost, COUNT(c.post_idPost) AS cantidad FROM comment AS c GROUP BY c.post_idPost ) AS comentarios ON p.idPost = comentarios.post_idPost;';
+  const consulta = 'SELECT p.image as url, u.nombre as autor, p.description as descripcion, u.photo as image, u.user as urlprofile, p.likes, p.share, COALESCE(comentarios.cantidad, 0) as comments FROM post AS p INNER JOIN usuario AS u ON p.user = u.user LEFT JOIN ( SELECT c.post_idPost, COUNT(c.post_idPost) AS cantidad FROM comment AS c GROUP BY c.post_idPost ) AS comentarios ON p.idPost = comentarios.post_idPost ORDER BY RAND();';
   db.query(consulta, (err, data) => {
     if (err) return res.json(err);
 
@@ -197,7 +200,7 @@ app.post('/NewUser', function(req, res){
 
 app.post('/infoUser', (req, res) => {
   const user = req.body.user;
-  const consulta = 'SELECT user, nombre, email, descripcion, followers, following, photo FROM usuario WHERE user = ?;';
+  const consulta = 'SELECT user, nombre, descripcion, followers, following, photo FROM usuario WHERE user = ?;';
   db.query(consulta, [user], (err, data) => {
     if (err) return res.json(err);
     res.json(data[0]);
@@ -216,7 +219,19 @@ app.get('/photoUser', (req, res) => {
 
 app.get('/imagesPost', (req, res) => {
   const user = req.query.user;
-  const query = "SELECT `image` FROM `post` WHERE `user` = ?";
+  const query = "SELECT image, idPost FROM `post` WHERE `user` = ? ";
+  // Ejecutar la consulta en la base de datos
+  db.query(query, [user] ,(err, result) => {
+    if (err) {
+      throw err;
+    }
+    res.json(result); // Enviar el resultado de la consulta como JSON
+  });
+});
+
+app.get('/DisplayUsuario', (req, res) => {
+  const user = req.query.user;
+  const query = "SELECT user, nombre, descripcion, followers, following, photo FROM usuario where user= ?;";
   // Ejecutar la consulta en la base de datos
   db.query(query, [user] ,(err, result) => {
     if (err) {
