@@ -42,7 +42,7 @@ fetch('json/prueba.json')
     const container = document.getElementById("container");
     data.sort(() => Math.random() - 0.5);
     data.forEach(image => {
-    // Creamos una seccion que englobara toda una pantalla y se asignamos un nombre
+      // Creamos una seccion que englobara toda una pantalla y se asignamos un nombre
       const imgContainer = document.createElement('section');
       imgContainer.className = 'container__img';
 
@@ -58,7 +58,7 @@ fetch('json/prueba.json')
       autorname.textContent = image.autor;
       // le damos jerarquia al span 
       autor.appendChild(autorname);
-      
+
       const container__description = document.createElement('div');
       container__description.className = 'container__description';
       const descripcion = document.createElement('p');
@@ -91,7 +91,7 @@ fetch('json/prueba.json')
       const no_like = document.createElement('p');
       no_like.textContent = image.likes;
       let likeCount = parseInt(image.likes);
-  
+
       likes.addEventListener('click', () => {
         if (likes.classList.contains('liked')) {
           likeCount -= 1;
@@ -99,22 +99,40 @@ fetch('json/prueba.json')
           likeCount += 1;
         }
         no_like.textContent = likeCount;
-   
+
       });
 
 
-      ico_heart.addEventListener("click", function() {
+      ico_heart.addEventListener("click", function () {
         ico_heart.classList.toggle("active");
 
       });
-
       likes.appendChild(no_like);
+
+      // const share = document.createElement('div');
+      // share.className = 'container__navbar-share';
+      // navbarOptions.appendChild(share);
+
+      // const ico_share = document.createElement('span');
+      // ico_share.className = 'bx bx-share';
+      // share.appendChild(ico_share);
+
+      // const button_share = document.createElement('button'); // Crear un elemento button
+      // button_share.textContent = "    n";
+      // ico_share.appendChild(button_share);
+
+      // const no_share = document.createElement('p');
+      // no_share.textContent = image.share;
+      // share.appendChild(no_share);
+
       const share = document.createElement('div');
       share.className = 'container__navbar-share';
       navbarOptions.appendChild(share);
-      const ico_share = document.createElement('span');
+
+      const ico_share = document.createElement('button');
       ico_share.className = 'bx bx-share';
       share.appendChild(ico_share);
+
       const no_share = document.createElement('p');
       no_share.textContent = image.share;
       share.appendChild(no_share);
@@ -122,7 +140,7 @@ fetch('json/prueba.json')
       const comments = document.createElement('div');
       comments.className = 'container__navbar-chat';
       navbarOptions.appendChild(comments);
-      const ico_chat = document.createElement('span');
+      const ico_chat = document.createElement('button');
       ico_chat.className = 'bx bx-chat';
       comments.appendChild(ico_chat);
       const no_comment = document.createElement('p');
@@ -131,12 +149,33 @@ fetch('json/prueba.json')
 
       // le damos jerarquia al documento 
       imgContainer.appendChild(container__description);
-      imgContainer.appendChild(navbarOptions);  
+      imgContainer.appendChild(navbarOptions);
       imgContainer.appendChild(autor);
       container.appendChild(imgContainer);
-    });
-  })
-  .catch(error => console.error(error));
+
+      //Popup del boton de compartir (funcionamiento)
+
+      const closeBtn = document.querySelector(".close");
+      const myPopup = document.querySelector(".popup")
+      ico_share.addEventListener("click", function () {
+        myPopup.style.display = "block";
+      });
+
+      closeBtn.addEventListener("click", function () {
+        myPopup.style.display = "none";
+      });
+
+      const comenButton = document.querySelector(".comentario-button");
+      const comentario = document.querySelector(".comentario");
+
+      ico_chat.addEventListener("click",() =>{
+        comentario.style.display = "block";
+      });
+      comenButton.addEventListener("click", () => {
+        comentario.style.display = "none";
+        });
+    })
+      .catch(error => console.error(error));
 
 
-  
+  });
