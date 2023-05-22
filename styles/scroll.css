@@ -232,6 +232,7 @@ span.bx.bxs-heart.active {
   left: 50%;
   transform: translate(-50%, -50%);
   display: none;
+  z-index: 1;
 }
 
 .popup_contenido {
@@ -290,6 +291,7 @@ span.bx.bxs-heart.active {
   left: 50%;
   transform: translate(-50%, -50%);
   display: none;
+  z-index: 1;
 }
 .comentario_contenido {
   position: relative;
