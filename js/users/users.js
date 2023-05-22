@@ -47,12 +47,16 @@ axios
     listaimg.className = "listaI";
     for (let i = 0; i < response.data.length; i++) {
       const pimg = document.createElement("li");
-      pimg.className = "imglist";
+      pimg.className = "elementoli"
+    const spantrash = document.createElement("button");
+    spantrash.className = "bx bxs-trash";
       const img = document.createElement("img");
       img.className = "imgFavs";
       img.src = response.data[i].image;
       img.alt = response.data[i].idPost;
-      pimg.appendChild(img);
+  
+    pimg.appendChild(spantrash);
+    pimg.appendChild(img);
       listaimg.appendChild(pimg);
     }
     seccionimg.appendChild(listaimg);
