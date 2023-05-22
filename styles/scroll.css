@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -7,52 +7,63 @@
   text-decoration: none;
   list-style-type: none;
 }
-a:link, a:visited,  a:hover, a:active{
-    color: #ffffff;
-    text-decoration: none;
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: #ffffff;
+  text-decoration: none;
 }
 
-header{
+header {
   background-color: black;
   height: 5vh;
   color: #ffffff;
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   justify-items: center;
 
 }
-.header_left{
+
+.header_left {
   display: flex;
   margin-left: 20px;
 }
-.header_rigth{
+
+.header_rigth {
   display: flex;
   margin-right: 20px;
 }
-header i{ 
+
+header i {
   margin-right: 1em;
   font-size: 1.5em;
 }
-header span{
+
+header span {
   font-size: 1em;
 }
-.chat{
+
+.chat {
   color: #ffffff;
 }
 
-.nav_user img{
+.nav_user img {
   border-radius: 50%;
   width: 1.5em;
   height: 1.5em;
 }
-#container{
+
+#container {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 95vh;
   scrollbar-width: none;
   color: #ffffff;
 }
+
 .container__img span {
   position: absolute;
 }
@@ -60,6 +71,7 @@ header span{
 .container__img p {
   position: absolute;
 }
+
 .container__img {
   display: grid;
   scroll-snap-align: center;
@@ -69,23 +81,23 @@ header span{
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  grid-template-columns:270px 1fr;
+  grid-template-columns: 270px 1fr;
   grid-template-rows: repeat(7, 1fr);
   grid-column-gap: 10px;
 
-  grid-template-areas: 
-  "header header"
-  "header header"
-  "header header"
-  "as navbar"
-  "as navbar"
-  "user navbar"
-  "description navbar";
+  grid-template-areas:
+    "header header"
+    "header header"
+    "header header"
+    "as navbar"
+    "as navbar"
+    "user navbar"
+    "description navbar";
 
 
 }
 
-.container__autor{
+.container__autor {
   grid-area: user;
   display: flex;
   align-items: end;
@@ -94,18 +106,20 @@ header span{
   font-weight: 500;
 }
 
-.container__description{
+.container__description {
   grid-area: description;
-  padding:0 30px;
+  padding: 0 30px;
   font-size: .9em;
   font-style: italic;
   width: 270px;
   word-wrap: break-word;
 }
-.container__description p{
+
+.container__description p {
   max-width: 250px;
 }
-.container__navbar{
+
+.container__navbar {
   color: #ffffff;
 
   display: grid;
@@ -113,74 +127,203 @@ header span{
   font-size: 1.2em;
   grid-template-rows: repeat(1, 1fr);
   grid-template-rows: repeat(4, 1fr);
-  grid-template-areas: 
-  "photo"
-  "likes"
-  "share"
-  "chat";
+  grid-template-areas:
+    "photo"
+    "likes"
+    "share"
+    "chat";
   margin-right: 20px;
   place-content: end;
 }
 
-.container__navbar span{
+.container__navbar span {
   font-size: 2em;
   cursor: pointer;
 }
 
-.container__navbar p{
+.container__navbar p {
   padding-top: 50px;
   font-size: 0.8em;
 }
 
-.container__navbar-photouser{
+.container__navbar-photouser {
   display: flex;
   grid-area: photo;
   align-items: center;
-  
+
 }
-.container__navbar-photouser img{
+
+.container__navbar-photouser img {
   border-radius: 50%;
   width: 2.7em;
   height: 2.7em;
   width: auto;
 }
 
-.container__navbar-likes{
+.container__navbar-likes {
   display: flex;
   grid-area: likes;
   justify-content: center;
 }
-span.bx.bxs-heart{
+
+span.bx.bxs-heart {
   color: white;
   transition: color 0.5s;
   z-index: 1;
--webkit-transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
 }
 
-span.bx.bxs-heart::after{
+span.bx.bxs-heart::after {
   font-size: 1px;
-	-webkit-transition: all 0.2s ease-in-out;
-	        transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   color: red;
 }
+
 span.bx.bxs-heart.active {
   font-size: 2.3em;
-	opacity: 1;
+  opacity: 1;
   color: red;
 }
 
 
-.container__navbar-share{
+.container__navbar-share {
   grid-area: share;
   display: flex;
   justify-content: center;
 }
 
+.container__navbar-share button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: color 0.5s;
+  z-index: 1;
+  width: 2em;
+  height: 2em;
+  font-size: 1.5em;
+  color: #ffffff;
+}
 
 
-.container__navbar-chat{
+.container__navbar-chat {
   grid-area: chat;
   display: flex;
   justify-content: center;
+}
+
+.container__navbar-chat button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: color 0.5s;
+  z-index: 1;
+  width: 2em;
+  height: 2em;
+  font-size: 1.5em;
+  color: #ffffff;
+}
+
+/* pop up  de compartir  */
+.popup {
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.popup_contenido {
+  position: relative;
+  display: flex;
+  width: 400px;
+  height: 300px;
+  background: rgb(0, 0, 0);
+  border-radius: 20px;
+  box-shadow: 0 15px 25px rgba(91, 90, 90, 1.8);
+  justify-content: center;
+  align-items: center;
+  color: whitesmoke;
+}
+
+.popup_contenido .contenedortext {
+  position: relative;
+  width: 75%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedortext h2 {
+  font-size: 2em;
+  line-height: 1em;
+  margin-bottom: 1em;
+}
+
+.contenedortext li {
+  display: inline-flex;
+  justify-self: start;
+  font-size: 2.5em;
+}
+
+.popup_contenido .close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 2.5em;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.close:hover,
+.close:focus {
+  color: #585858;
+  text-decoration: none;
+  cursor: pointer;
+}
+/*popup para los comentarios*/
+.comentario {
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+.comentario_contenido {
+  position: relative;
+  display: flex;
+  width: 450px;
+  height: 350px;
+  box-shadow: 2px 2px 30px rgba(1, 1, 1, 0.8);
+  background-color: #383737;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.comentario_contenido h3{
+  color: white;
+  font-size: 1.5em;
+  font-family: 'Poppins', sans-serif;
+}
+
+textarea{
+  background: #2f2f2f;
+  color: #aeadad;
+  border: 1px solid #aaaaaa;
+  font-size: 1em;
+  resize: none;
+  padding: 0.5em;
+  outline: none;
+}
+
+.comentario .comentario-button button{
+  background: #222;
+  color: #aeadad;
+  border: 1px solid #333;
+  font-size: 1em;
+  padding: 0.7em;
+  cursor: pointer;
+  border-radius: 10px;
 }
