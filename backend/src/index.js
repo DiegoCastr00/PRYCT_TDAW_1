@@ -148,7 +148,7 @@ app.post('/LogIn', (req, res) => {
       res.status(500).json({ mensaje: 'Error en el servidor' })
     }
     if (data.length > 0) {
-      console.log(data[0].user);
+      console.log(data[0]);
       // Autenticación exitosa, enviar los datos del usuario como respuesta
       res.json(data[0].user);
     } else {
@@ -195,14 +195,24 @@ app.post('/NewUser', function(req, res){
   });
 })
 
-app.get('/infoUser', (req, res) => {
+app.post('/infoUser', (req, res) => {
   const user = req.body.user;
-  const consulta = 'SELECT user, nombre, email, descripcion, followers, following, photo FROM usuario WHERE USER = ?;';
+  const consulta = 'SELECT user, nombre, email, descripcion, followers, following, photo FROM usuario WHERE user = ?;';
   db.query(consulta, [user], (err, data) => {
     if (err) return res.json(err);
-    res.json(data);
+    res.json(data[0]);
   });
 });
+
+app.get('/photoUser', (req, res) => {
+  const user = req.query.user;
+  const consulta = 'SELECT photo FROM usuario WHERE user = ?;';
+  db.query(consulta, [user], (err, data) => {
+    if (err) return res.json(err);
+    res.json(data[0].photo);
+  });
+});
+
 
 //Listening server
 app.listen(PORT, () => {

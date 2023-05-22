@@ -1,4 +1,42 @@
-fetch('json/scroll.json')
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Tu código aquí
+  console.log('La página se ha cargado');
+    // Obtener la URL actual
+  var url = new URL(window.location.href);
+
+  // Obtener los parámetros de la URL
+  var searchParams = new URLSearchParams(url.search);
+
+  // Obtener el valor del parámetro "user"
+  var user = searchParams.get("user");
+
+  // Hacer algo con el valor de "user"
+  console.log(user);
+  const MainProfileurl = document.querySelector('.nav_user');
+  MainProfileurl.href = `user_principal.html?u=${user}`;
+  // Hacer la solicitud GET al servidor
+axios.get('http://localhost:8081/photoUser', {
+  params: {
+    user: user // Reemplaza 'nombredeusuario' por el valor deseado
+  }
+})
+.then(response => {
+  const MainProfile = document.querySelector('.nav_user img');
+  MainProfile.src = response.data;
+  
+  console.log(response.data);
+})
+.catch(error => {
+  // Manejar el error en caso de que ocurra
+  console.error(error);
+});
+
+});
+
+
+
+fetch('json/prueba.json')
   .then(response => response.json())
   .then(data => {
     const container = document.getElementById("container");
@@ -37,10 +75,9 @@ fetch('json/scroll.json')
       navbarOptions.appendChild(photo_user);
 
       const user = document.createElement('a');
-      var hre = image.profile.url;
-      user.href = hre;
+      user.href = '../user_principal.html' + "?u=" + encodeURIComponent(image.profile.urlprofile);
       const user_profile = document.createElement('img');
-      user_profile.setAttribute("src", image.profile.image );
+      user_profile.setAttribute("src", image.profile.image);
       photo_user.appendChild(user);
       user.appendChild(user_profile);
 
