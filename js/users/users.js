@@ -32,13 +32,17 @@ const listaimg = document.createElement("ul");
 listaimg.className = "listaI";
   for (let j = 1; j < 31; j++) {
     const pimg = document.createElement("li");
-    pimg.className = "imglist";
+    pimg.className = "elementoli"
+    const spantrash = document.createElement("button");
+    spantrash.className = "bx bxs-trash";
     const img = document.createElement("img");
     
     img.className = "imgFavs";
     const randomNum = Math.floor(Math.random() * 25) + 1;
     img.src = "/img/img" + randomNum + ".jpg";
     img.alt = "photo " + j;
+
+    pimg.appendChild(spantrash);
     pimg.appendChild(img);
     listaimg.appendChild(pimg);
   }
