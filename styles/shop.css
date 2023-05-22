@@ -35,13 +35,13 @@ header{
 	background: transparent;
 	padding: 20px 14%;
 	transition: all .35s ease;
-	background-color: #ffffff;
+	background-color: var(--text-color);
 }
 .logo{
 	font-size: 28px;
 	font-weight: 700;
 	letter-spacing: 1px;
-	color: var(--text-color);
+	color: var(--bg-color);
 }
 .navlist{
 	display: flex;
@@ -50,7 +50,7 @@ header{
 	list-style: none;
 }
 .navlist a{
-	color: var(--text-color);
+	color: var(--bg-color);
 	font-weight: 600;
 	padding: 10px 25px;
 	font-size: var(--normal-font);
@@ -61,7 +61,7 @@ header{
 }
 .header-icons i{
 	font-size: 32px;
-	color: var(--text-color);
+	color: var(--bg-color);
 	margin-right: 20px;
 	transition: all .36s ease;
 }
@@ -81,6 +81,7 @@ header{
 	#menu-icon{
 		display: block;
 		cursor: pointer;
+        color: var(--bg-color);
 	}
 	.header-icons{
 		display: inline-flex;
@@ -91,16 +92,18 @@ header{
 		left: -100%;
 		width: 280px;
 		height: 120vh;
-		background: var(--bg-color);
+		background: var(--text-color);
 		display: flex;
 		align-items: center;
 		flex-direction: column;
 		padding: 150px 30px;
 		transition: all .45s ease;
+        color: var(--bg-color);
 	}
 	.navlist a{
 		display: block;
 		margin: 1.2rem 0;
+        color: var(--bg-color);
 	}
 	.navlist.open{
 		left: 0;
@@ -160,12 +163,13 @@ header{
     padding: 5px 15px;
     cursor: pointer;
 	font-size: 2em;
+    border-radius: 30px;
 }
 /* seccion carrito */
 
 .carrito{   
     float: inline-end;
-
+    border-radius: 30px;
     width: 30%;
     margin-top: 0;
     border-radius: 10px;
@@ -176,10 +180,11 @@ header{
 	margin-right: 2em;
 }
 .carrito .header-carrito{
-    background-color: #3483FA;
+    background-color: var(--text-color);
     color: #fff;
     text-align: center;
     padding: 30px 0;
+    border-radius: 10px;
 }
 .carrito .carrito-item{
     display: flex;
@@ -264,7 +269,7 @@ header{
     display: block;
     width: 100%;
     border: none;
-    background: #3483FA;
+    background: var(--text-color);
     color: #fff;
     border-radius: 5px;
     font-size: 18px;
@@ -296,7 +301,7 @@ header{
 	font-size: 22px;
 	color: var(--bg-color);
 	padding: 14px;
-	background: var(--main-color);
+	background: var(--text-color);;
 	border-radius: 2rem;
 }
 
