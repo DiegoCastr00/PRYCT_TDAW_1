@@ -2,13 +2,13 @@
     require 'database.php';
     $menssage = "";
     if (!empty($_POST['nombre']) && !empty($_POST['usuario']) && !empty($_POST['email']) && !empty($_POST['password'])) {
-        $sql = "INSERT INTO usuario (`user`, `nombre`, `email`, `password`) VALUES (:nombre, :usuario, :email, :password)";
+        $sql = "INSERT INTO usuario (`user`, `nombre`, `email`, `password`) VALUES (:usuario,:nombre, :email, :password)";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':nombre', $_POST['nombre']);
         $stmt->bindParam(':usuario', $_POST['usuario']);
         $stmt->bindParam(':email', $_POST['email']);
         $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-        $stmt->bindParam(':password', $password);
+        $stmt->bindParam(':password',$password);
         if ($stmt->execute()) {
             $menssage = 'Usuario creado correctamente';
         } else {
@@ -42,10 +42,10 @@
 
 
                     <?php if(!empty($menssage)): ?>
-                    <p><?php $menssage ?></p>
+                    <p><?= $menssage ?></p>
                     <?php endif; ?>
 
-                    <form  method="post" id="SignUp">
+                    <form action="signup.php" method="post" id="SignUp">
                         <div class="entrada">
                             <input type="text" name="nombre" id="nombre">
                             <label for="">Nombre</label>
@@ -56,12 +56,12 @@
                         </div>
                         <div class="entrada">
                             <ion-icon name="mail-outline"></ion-icon>
-                            <input type="email" name="usuario" id="email">
+                            <input type="email" name="email" id="email">
                             <label for="">Email</label>
                         </div>
                         <div class="entrada">
                             <ion-icon name="lock-closed-outline"></ion-icon>
-                            <input type="password" name="contra" id="password">
+                            <input type="password" name="password" id="password">
                             <label for="">Contraseña</label>
                         </div>
                         <div class="entrada">

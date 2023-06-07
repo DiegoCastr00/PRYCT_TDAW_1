@@ -1,3 +1,23 @@
+<?php 
+    session_start();
+    require 'database.php';
+    $message = "";
+    if (!empty($_POST['email']) && !empty($_POST['contra'])){
+        $records = $conn->prepare('SELECT user, nombre, email, password FROM usuario WHERE email=:email');
+        $records->bindParam(':email', $_POST['email']);
+        $records->execute();
+        $results = $records->fetch(PDO::FETCH_ASSOC);
+
+       if ($results && password_verify($_POST['contra'], $results['password'])){
+            $_SESSION['user_id'] = $results['user'];
+            $message = 'Inicio de sesión exitoso';
+        } else {
+            $message = 'Usuario o contraseña incorrectos';
+        }
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,8 +30,6 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
-    <script src="js/inicio_registro/validate.js"defer></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
@@ -25,13 +43,18 @@
                 <div class="icono">
                     <i class='bx bxs-sushi'> </i>SUSHI 
                 </div>
-                <form action="login.php" onsubmit="return validarFormulario()" method="post">
+                <?php if(!empty($message)): ?>
+                    <p><?= $message ?></p>
+                    <?php endif; ?>
+
+
+                <form action="login.php" method="post">
                     <h2>
                         Ingresos
                     </h2>
                     <div class="entrada">
                         <ion-icon name="mail-outline"></ion-icon>
-                        <input type="email" name="usuario" id="email" >
+                        <input type="email" name="email" id="email" >
                         <label id="eml">Email</label>
                     </div>
                     <div class="entrada">
