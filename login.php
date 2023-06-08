@@ -5,7 +5,6 @@
         header("Location: index.php");
     }
 
-
     require 'database.php';
     $message = "";
     if (!empty($_POST['email']) && !empty($_POST['contra'])){

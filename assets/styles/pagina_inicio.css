@@ -147,6 +147,7 @@ section#hero{
 
 /*Diseño responsivo*/
 @media (max-width: 992px) {
+
     .navbar .links,
     .navbar .action_btn {
         display: none;
@@ -159,6 +160,9 @@ section#hero{
     .dropdown_menu {
         display: block;
     }
+    header{
+        margin: 1rem;
+    }
 }
 
 @media (max-width: 992px){
@@ -166,6 +170,10 @@ section#hero{
         left: 2rem;
         width: unset;
     }
+    .logo i{
+        display: none;
+    }
+
 }
 
 .popup{
@@ -245,3 +253,7 @@ button{
     border: none;
 }
 
+.sesion{
+    color: white;
+    text-align: center;
+}
