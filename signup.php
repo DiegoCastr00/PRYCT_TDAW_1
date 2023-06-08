@@ -1,18 +1,28 @@
 <?php 
     require 'database.php';
-    $menssage = "";
+    $message = "";
     if (!empty($_POST['nombre']) && !empty($_POST['usuario']) && !empty($_POST['email']) && !empty($_POST['password'])) {
-        $sql = "INSERT INTO usuario (`user`, `nombre`, `email`, `password`) VALUES (:usuario,:nombre, :email, :password)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':nombre', $_POST['nombre']);
-        $stmt->bindParam(':usuario', $_POST['usuario']);
-        $stmt->bindParam(':email', $_POST['email']);
-        $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-        $stmt->bindParam(':password',$password);
-        if ($stmt->execute()) {
-            $menssage = 'Usuario creado correctamente';
-        } else {
-            $menssage = 'Usuario no se ha creado correctamente';
+        try {
+            $sql = "INSERT INTO usuario (`user`, `nombre`, `email`, `password`) VALUES (:usuario,:nombre, :email, :password)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':nombre', $_POST['nombre']);
+            $stmt->bindParam(':usuario', $_POST['usuario']);
+            $stmt->bindParam(':email', $_POST['email']);
+            $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+            $stmt->bindParam(':password', $password);
+            if ($stmt->execute()) {
+                $message = 'Usuario creado correctamente';
+                header("Location: login.php");
+                exit; 
+            } else {
+                $message = 'Usuario no se ha creado correctamente';
+            }
+        } catch (PDOException $e) {
+            if ($e->errorInfo[1] == 1062) {
+                $message = 'El nombre de usuario ya está en uso';
+            } else {
+                $message = 'Error al crear el usuario: ' . $e->getMessage();
+            }
         }
     }
 ?>
@@ -24,7 +34,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro</title>
-    <link rel="stylesheet" href="assets/styles/inicio_sesion.css">
+    <link rel="stylesheet" href="assets/styles/inicio_sesion.css?t=<?php echo time(); ?>">
+
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
     <link rel="icon" type="image/jpg" href="img/sushi.ico"/>
@@ -40,10 +51,9 @@
                     </div>
                     <h2>Registro</h2>
 
-
-                    <?php if(!empty($menssage)): ?>
-                    <p><?= $menssage ?></p>
-                    <?php endif; ?>
+                    <div id="mensaje" class="mensaje">
+                        <?php echo $message; ?>
+                    </div>
 
                     <form action="signup.php" method="post" id="SignUp">
                         <div class="entrada">

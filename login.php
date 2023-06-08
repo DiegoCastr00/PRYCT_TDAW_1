@@ -1,5 +1,11 @@
 <?php 
     session_start();
+
+    if (isset($_SESSION['user_id'])) {
+        header("Location: index.php");
+    }
+
+
     require 'database.php';
     $message = "";
     if (!empty($_POST['email']) && !empty($_POST['contra'])){
@@ -11,6 +17,7 @@
        if ($results && password_verify($_POST['contra'], $results['password'])){
             $_SESSION['user_id'] = $results['user'];
             $message = 'Inicio de sesión exitoso';
+            header("Location: index.php");
         } else {
             $message = 'Usuario o contraseña incorrectos';
         }

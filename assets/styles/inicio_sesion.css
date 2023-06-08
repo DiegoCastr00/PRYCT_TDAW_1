@@ -34,8 +34,6 @@ section {
     backdrop-filter: blur(15px);
 }
 
-
-
 .entrada {
     position: relative;
     margin: 30px;
@@ -134,4 +132,10 @@ button {
 button a{
     text-decoration: none;
     color: #fff;
+}
+
+#mensaje{
+    color: red;
+    text-align: center;
+    font-size: 1.2em;
 }

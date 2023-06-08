@@ -1,3 +1,22 @@
+<?php
+    session_start();
+    require 'database.php';
+    
+    if(isset($_SESSION['user_id'])){
+        $records = $conn->prepare('SELECT user, nombre,email, password FROM usuario WHERE user = :id');
+        $records->bindParam(':id', $_SESSION['user_id']);
+        $records->execute();
+        $results = $records->fetch(PDO::FETCH_ASSOC);
+    
+        $user = null;
+    
+        if(count($results) > 0){
+            $user = $results;
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -31,10 +50,17 @@
                 <li><a href="scroll.html">Scroll</a></li>
                 <li><a href="shop.html">Tienda</a></li>
             </ul>
+
+            <?php if(!empty($user)):?>
+                <br>Hola <?= $user['nombre'] ?>
+                <br>Has iniciado sesión correctamente
+                <a href="logout.php"> Cerrar sesión</a>
+            <?php else: ?>
             <a href="login.php" class="action_btn">Iniciar sesión</a>
             <div class="toggle_btn">
                 <i class="fa-solid fa-bars"></i>
             </div>
+            <?php endif; ?>
         </div>
 
         <div class="dropdown_menu">
