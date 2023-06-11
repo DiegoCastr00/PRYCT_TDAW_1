@@ -45,7 +45,7 @@ if (isset($_SESSION['user_id'])) {
                 <?php else : ?>
                     <li><a href="signup.php">Registrarse</a></li>
                 <?php endif; ?>
-                <li><a href="scroll.html">Scroll</a></li>
+                <li><a href="scroll.php">Scroll</a></li>
                 <li><a href="shop.php">Tienda</a></li>
             </ul>
             <?php if (!empty($user)) : ?>

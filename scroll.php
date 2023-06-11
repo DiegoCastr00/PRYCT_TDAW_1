@@ -1,3 +1,20 @@
+<?php
+session_start();
+require 'database.php';
+
+if (isset($_SESSION['user_id'])) {
+    $records = $conn->prepare('SELECT user, nombre,email, password FROM usuario WHERE user = :id');
+    $records->bindParam(':id', $_SESSION['user_id']);
+    $records->execute();
+    $results = $records->fetch(PDO::FETCH_ASSOC);
+    $user = null;
+    if (count($results) > 0) {
+        $user = $results;
+        echo '<input type="hidden" id="user-data" value="' . htmlspecialchars(json_encode($user)) . '">';
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +23,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/jpg" href="img/sushi.ico" />
-    <link rel="stylesheet" href="styles/scroll.css">
+    <link rel="stylesheet" href="assets/styles/scroll.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -14,7 +31,7 @@
         rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
-    <script src="js/scroll/scroll.js" defer></script>
+    <script src="assets/js/scroll/scroll.js" defer></script>
     <title>Scroll</title>
 
 </head>
@@ -25,7 +42,7 @@
     </div>
     <div class="header_rigth">
         <a href="shop.html" class="shop"> <i class='bx bx-shopping-bag' ></i></a>
-        <a href="#" class="nav_user"><img src="img/userP.jpg" alt=""> </a>
+        <a href="#" class="nav_user"><img src="assets/img/userP.jpg" alt=""> </a>
     </div>
 </header>
 
