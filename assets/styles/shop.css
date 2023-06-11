@@ -56,6 +56,9 @@ header{
 	font-size: var(--normal-font);
 	transition: all .36s ease;
 }
+.mensaje{
+    color: white;
+}
 .navlist a:hover{
 	color: var(--main-color);
 }
