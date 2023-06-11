@@ -57,7 +57,7 @@ form.addEventListener("submit", (event) => {
         .then((response) => {
           confirm(response.data.message);
           form.reset(); // Restablecer el formulario después de enviarlo con éxito
-           // Restablecer el formulario después de enviarlo con éxito
+          location.reload();// Restablecer el formulario después de enviarlo con éxito
         })
         .catch((error) => {
           console.error(error);
@@ -82,7 +82,6 @@ const des = document.querySelector('.content p');
 
 saveChangesButton.addEventListener("click", (event) => {
   event.preventDefault(); // Prevenir el comportamiento predeterminado del botón
-
   alert('enviar');
   const veriImage = NewPhotoUser.files;
   if (veriImage.length > 0) {
@@ -115,6 +114,7 @@ saveChangesButton.addEventListener("click", (event) => {
   axios.post('http://localhost:8081/updateDescription', { description, userP })
     .then((response) => {
       console.log(response.data.message);
+      location.reload();
       // Realizar acciones adicionales si es necesario
     })
     .catch((error) => {

@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
             navbarOptions.appendChild(photo_user);
 
             const user = document.createElement("a");
-            user.href = "../user1.html" + "?u=" + image.profile.urlprofile;
+            user.href = "http://localhost/PRYCT_TDAW_1/user1.html" + "?u=" + image.profile.urlprofile;
             const user_profile = document.createElement("img");
             user_profile.setAttribute("src", image.profile.image);
             photo_user.appendChild(user);
