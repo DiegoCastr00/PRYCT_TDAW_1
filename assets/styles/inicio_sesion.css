@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+h2 {
+    font-size: 1.5em;
+    color: aliceblue;
+    text-align: center;
+}
+
+section {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('../img/img5.jpg');
+    background-size: cover;
+
+}
+
+.registro {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(15px);
+}
+
+.entrada {
+    position: relative;
+    margin: 30px;
+    width: 290px;
+    border-bottom: 2px solid #fff;
+}
+
+input:focus~label,
+input:valid~label {
+    top: 5px;
+}
+
+.entrada label {
+    position: absolute;
+    top: 40%;
+    left: 5px;
+    transform: translateY(-100%);
+    color: #fff;
+    font-size: 1em;
+}
+
+.entrada #eml{
+    transform: translateY(-90%);
+}
+
+.entrada input {
+    width: 80%;
+    height: 40px;
+    background: transparent;
+    outline: none;
+    border: none;
+    font-size: 1em;
+    padding: 10px 0 5px;
+    color: #fff;
+}
+
+.entrada ion-icon {
+    position: absolute;
+    color: #fff;
+    font-size: 1.2em;
+    right: 8px;
+    top: 20 px;
+}
+
+.perdida {
+    margin: -15px 0 15px;
+    font-size: 0.9em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    margin-left: 38px;
+    width: 80%;
+    height: 40px;
+    border-radius: 40px;
+    background-color: #0071ff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 0.9em;
+    color: #fff;
+}
+
+.registrarse {
+    margin: 5%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+}
+
+.registrarse a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.perdida a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.boton {
+    justify-content: center;
+    align-items: center;
+
+}
+
+.icono {
+    color: white;
+    font-size: 1.5em;
+    margin-left: 34%;
+    margin-bottom: 30px;
+}
+
+button a{
+    text-decoration: none;
+    color: #fff;
+}
+
+#mensaje{
+    color: red;
+    text-align: center;
+    font-size: 1.2em;
+}
