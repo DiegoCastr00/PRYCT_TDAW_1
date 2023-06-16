@@ -17,6 +17,7 @@
             $_SESSION['user_id'] = $results['user'];
             $message = 'Inicio de sesión exitoso';
             header("Location: index.php");
+            exit();
         } else {
             $message = 'Usuario o contraseña incorrectos';
         }
@@ -49,11 +50,9 @@
                 <div class="icono">
                     <i class='bx bxs-sushi'> </i>SUSHI 
                 </div>
-                <?php if(!empty($message)): ?>
-                    <p><?= $message ?></p>
-                    <?php endif; ?>
-
-
+                <div id="mensaje" class="mensaje">
+                        <?php echo $message; ?>
+                    </div>
                 <form action="login.php" method="post">
                     <h2>
                         Ingresos
@@ -80,7 +79,7 @@
                     </div>
 
                     <div class="registrarse">
-                        <p>Crear una cuenta <a href="registro.html">Ingresa aqui</a> </p>
+                        <p>Crear una cuenta <a href="signup.php">Ingresa aqui</a> </p>
                     </div>
                 </form>
             </div>
