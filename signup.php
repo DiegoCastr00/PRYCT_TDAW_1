@@ -19,7 +19,7 @@
             }
         } catch (PDOException $e) {
             if ($e->errorInfo[1] == 1062) {
-                $message = 'El nombre de usuario ya está en uso';
+                $message = 'El usuario ya está en uso';
             } else {
                 $message = 'Error al crear el usuario: ' . $e->getMessage();
             }

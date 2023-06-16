@@ -67,9 +67,9 @@ if (isset($_SESSION['user_id'])) {
             <?php endif; ?>
         </div>
         <div class="dropdown_menu">
-            <li><a href="inicio_sesion.html" class="action_btn">Iniciar sesión</a></li>
-            <li><a href="registro.html">Registrarse</a></li>
-            <li><a href="scroll.html">Scroll</a></li>
+            <li><a href="login.php" class="action_btn">Iniciar sesión</a></li>
+            <li><a href="signup.php">Registrarse</a></li>
+            <li><a href="scroll.php">Scroll</a></li>
             <li><a href="shop.php">Tienda</a></li>
         </div>
     </header>
