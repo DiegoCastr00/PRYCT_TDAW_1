@@ -235,10 +235,22 @@ function actualizarTotalCarrito() {
 
   }
 
-    function enviarFormulario() {
-    var valor = total;
-    document.getElementById("valor").value = valor;
-    document.getElementById("myForm").submit(); 
+  function enviarFormulario() {
+    var checkbox = document.getElementById("myCheckbox");
+    var itemsCarrito = document.getElementsByClassName("carrito-items")[0];
+  
+    if (!itemsCarrito.hasChildNodes()) {
+      alert("El carrito está vacío. Agrega productos antes de continuar.");
+      return;
+    }
+  
+    if (checkbox.checked) {
+      var valor = total;
+      document.getElementById("valor").value = valor;
+      document.getElementById("myForm").submit();
+    } else {
+      alert("Debes aceptar los términos y condiciones para continuar con la compra.");
+    }
   }
 
 

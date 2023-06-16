@@ -19,12 +19,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute([$user_id, $fecha_actual, $valor]);
 
         if ($stmt) {
-            header("Location: confirmacion.php");
+            $idventa = $conn->lastInsertId(); // Obtiene el ID de la última inserción
+            header("Location: confirmacion.php?idventa=$idventa");
             exit;
         } else {
             header("Location: error.php");
             exit;
         }
+        
     } else {
         $message = 'El valor no se ha recibido correctamente';
     }
